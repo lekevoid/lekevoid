@@ -159,7 +159,7 @@ body.body--light {
 		height: auto;
 		flex: 0 0 auto;
 		z-index: 2;
-		padding-top: 20vh;
+		padding-top: 40vh;
 		display: flex;
 		flex-flow: column nowrap;
 		justify-content: flex-end;

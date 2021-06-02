@@ -1,5 +1,5 @@
 <template>
-	<div class="row">
+	<div class="row nav_wrapper">
 		<div class="col-1"></div>
 		<div class="col">
 			<nav
@@ -14,8 +14,16 @@
 			</nav>
 		</div>
 		<div class="col-1 flex flex-center q-pt-md">
-			<q-img class="theme_icon dark" v-if="!$q.dark.isActive" :src="icon_mode_dark" @click="$q.dark.set(true)"><q-tooltip>Dark Mode</q-tooltip></q-img>
-			<q-img class="theme_icon light" v-if="$q.dark.isActive" :src="icon_mode_light" @click="$q.dark.set(false)"><q-tooltip>Light Mode</q-tooltip></q-img>
+			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
+				<q-img class="theme_icon dark" v-if="!$q.dark.isActive" :src="icon_mode_dark" @click="$q.dark.set(true)">
+					<q-tooltip>Dark Mode</q-tooltip>
+				</q-img>
+			</transition>
+			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
+				<q-img class="theme_icon light" v-if="$q.dark.isActive" :src="icon_mode_light" @click="$q.dark.set(false)">
+					<q-tooltip>Light Mode</q-tooltip>
+				</q-img>
+			</transition>
 		</div>
 		<div class="col-1"></div>
 	</div>
@@ -50,7 +58,6 @@ export default {
 			const navLine = this.$refs["nav_line"];
 			const left = linkTo.offsetLeft;
 			const right = nav.clientWidth - (linkTo.offsetLeft + linkTo.clientWidth);
-			// console.log(nav.clientWidth, linkTo.offsetLeft, linkTo.clientWidth);
 
 			if (from) {
 				const pageFrom = this.pages.find((p) => p.name.toLowerCase() === from);
@@ -113,6 +120,10 @@ body.body--light {
 			border-color: $linkColor;
 		}
 	}
+}
+
+.nav_wrapper {
+	z-index: 100;
 }
 
 nav {

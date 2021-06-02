@@ -78,6 +78,11 @@
 							</div>
 						</div>
 					</q-card>
+					<h2>Projects</h2>
+					<Project id="broadsign" name="broadsign.com" />
+					<Project id="gigi_retzo" name="GigiRetzo.com" />
+					<Project id="bokkle" name="Bokkle" />
+					<Project id="face_a_face" name="Face à Face" />
 				</div>
 				<div class="col-1"></div>
 			</div>
@@ -86,6 +91,8 @@
 </template>
 
 <script>
+import Project from "../components/WorkProjectCarousel.vue";
+
 import logo_html from "../assets/logo_html.svg";
 import logo_css from "../assets/logo_css.svg";
 import logo_sass from "../assets/logo_sass.svg";
@@ -103,7 +110,7 @@ import logo_wordpress from "../assets/logo_wordpress.svg";
 
 export default {
 	name: "PageIndex",
-
+	components: { Project },
 	data: () => ({
 		logo_html: logo_html,
 		logo_css: logo_css,
