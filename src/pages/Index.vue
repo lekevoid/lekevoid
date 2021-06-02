@@ -154,7 +154,7 @@ export default {
 					const randomPosLeft = Math.random() * 100;
 					const randomPosTop = Math.random() * 100;
 					const randomAnimDuration = Math.random();
-					const randomOpacity = Math.random();
+					const randomOpacity = Math.random() * (2 / 3);
 					const randomSize = Math.floor(Math.random() * this.starSizes.length);
 					const randomSkew = Math.floor(Math.random() * this.starSkews.length);
 
@@ -180,13 +180,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @keyframes starShineSmall {
 	0% {
 		transform: scale(0) rotate(0deg);
 	}
 	50% {
-		transform: scale(0.1) rotate(300deg);
+		transform: scale(0.3) rotate(300deg);
 	}
 	100% {
 		transform: scale(0) rotate(600deg);
@@ -198,7 +198,7 @@ export default {
 		transform: scale(0) rotate(0deg);
 	}
 	50% {
-		transform: scale(0.2) rotate(300deg);
+		transform: scale(0.6) rotate(300deg);
 	}
 	100% {
 		transform: scale(0) rotate(600deg);
@@ -210,7 +210,7 @@ export default {
 		transform: scale(0) rotate(0deg);
 	}
 	50% {
-		transform: scale(0.3) rotate(300deg);
+		transform: scale(0.9) rotate(300deg);
 	}
 	100% {
 		transform: scale(0) rotate(600deg);
@@ -286,8 +286,10 @@ body.body--dark {
 }
 
 .star {
-	height: 20px;
-	width: 20px;
+	$starSize: 1vw;
+	$starColor: #ddf;
+	height: $starSize;
+	width: $starSize;
 	position: absolute;
 	left: 10px;
 	top: 10px;
@@ -308,9 +310,9 @@ body.body--dark {
 	}
 
 	&:before {
-		height: 20px;
-		width: 20px;
-		background-color: #fff;
+		height: $starSize;
+		width: $starSize;
+		background-color: $starColor;
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -319,9 +321,9 @@ body.body--dark {
 	}
 
 	&:after {
-		height: 20px;
-		width: 20px;
-		background-color: #fff;
+		height: $starSize;
+		width: $starSize;
+		background-color: $starColor;
 		position: absolute;
 		left: 50%;
 		top: 50%;
