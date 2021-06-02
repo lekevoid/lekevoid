@@ -178,10 +178,11 @@ body.body--light {
 		z-index: 2;
 		margin-top: -10px;
 		background-color: #000;
+		z-index: 1;
 	}
 
-	&.ocean {
-		z-index: 1;
+	&.depths {
+		z-index: 2;
 		bottom: 0;
 		display: none;
 	}
