@@ -79,6 +79,7 @@ module.exports = function(/* ctx */) {
 			config: {
 				dark: true,
 			},
+			cssAddon: true,
 
 			// Possible values for "importStrategy":
 			// * 'auto' - (DEFAULT) Auto-import needed Quasar components & directives

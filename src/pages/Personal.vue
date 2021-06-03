@@ -5,14 +5,14 @@
 			<div class="row">
 				<div class="col-1"></div>
 				<div class="col">
-					<h1>I'm Kevin</h1>
-					<h2>...and I find solutions</h2>
+					<h1>So who am I</h1>
+					<h2>...I hear you wonder ?</h2>
 					<div class="row">
-						<div class="col-4">
+						<div class="col-12 col-md-4">
 							<q-img :src="kevin_dark" />
 						</div>
-						<div class="col-1"></div>
-						<div class="col-7">
+						<div class="col-md-1"></div>
+						<div class="col-12 col-md-7">
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus faucibus purus eu justo pharetra fermentum. Morbi blandit
 								nisl pretium turpis condimentum, nec aliquam augue aliquet. Mauris venenatis sem a sapien scelerisque, et volutpat nibh
@@ -67,12 +67,11 @@ export default {
 	data: () => ({
 		kevin_dark: kevin_dark,
 	}),
-	created(){
-	}
+	created() {},
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body.body--dark {
 	overflow-x: hidden;
 	background: #000;

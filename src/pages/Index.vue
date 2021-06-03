@@ -1,34 +1,32 @@
 <template>
 	<q-page>
-		<!-- <div class="quote best_tools right">I never ask myself "Is this feasible?", only "What's the best tool available?"</div>
-		<div class="quote challenge left">Woohoo, a challenge!</div> -->
+		<div class="bg_stars" ref="bg_stars"></div>
+		<div class="bg_galaxy flex flex-center">
+			<video autoplay loop muted ref="galaxy">
+				<source src="../assets/galaxy_rotating_hd.mp4" type="video/mp4" />
+				<source src="../assets/galaxy_rotating_md.mp4" type="video/mp4" />
+				<source src="../assets/galaxy_rotating_sd.mp4" type="video/mp4" />
+				<img src="../assets/galaxy_static.jpg" />
+			</video>
+		</div>
 		<div class="content">
 			<div class="row">
-				<div class="col-1"></div>
 				<div class="col">
-					<h1>Work</h1>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus faucibus purus eu justo pharetra fermentum. Morbi blandit nisl
-						pretium turpis condimentum, nec aliquam augue aliquet. Mauris venenatis sem a sapien scelerisque, et volutpat nibh condimentum. Nullam a
-						pharetra dui. Morbi at metus diam. Curabitur velit ex, consequat vitae purus in, vulputate rutrum nisl. Vestibulum convallis id nunc et
-						vehicula. Vivamus sollicitudin et lorem at tempus. Aliquam sed vehicula est, vitae ornare felis. Ut ac felis semper, pellentesque odio
-						eget, egestas elit. Proin laoreet tellus tortor, vel euismod dolor ullamcorper vitae. Mauris dui magna, egestas pellentesque rutrum id,
-						vehicula et felis. Praesent ac bibendum magna, eu pharetra mauris. Cras imperdiet faucibus ultrices. Suspendisse et nunc et nulla
-						ultricies venenatis.
-					</p>
-					<p>
-						Duis commodo vel nunc non ornare. Etiam ac scelerisque lacus, id sagittis nisi. Nullam aliquet elit enim, nec porta elit malesuada
-						mollis. Vivamus vel elit sapien. Curabitur et volutpat massa. Nam vitae odio ut elit consequat mollis eu eu nisl. Nullam eget lorem id
-						orci consequat dictum venenatis ac tortor. Sed maximus, erat vitae vestibulum condimentum, elit tortor bibendum tortor, egestas
-						venenatis diam orci vel purus. In sit amet libero interdum dolor iaculis tempus at et nibh. Vivamus eu felis euismod, vehicula magna
-						feugiat, vehicula dolor. Sed vel vestibulum ligula. Aliquam vulputate lectus nec urna consectetur, nec pretium turpis vestibulum. Mauris
-						ut sem ac turpis pretium commodo vitae ac lacus. Maecenas fringilla est sit amet massa semper vulputate. Proin ullamcorper viverra
-						ipsum, non vulputate lectus eleifend porttitor.
-					</p>
-					<h2>The tools</h2>
-					<q-card class="q-pa-xl q-mb-xl">
+					<div class="hero flex flex-center column">
+						<h1 class="flex column items-center q-mt-none">
+							<span class="hi">Hi, I'm</span>
+							<span class="kevin">Kevin.</span>
+						</h1>
+						<p>
+							<q-btn color="purple" class="q-pl-lg">
+								<span class="wave"><span class="inner">👋</span></span>
+								<span>Well hello there !</span>
+							</q-btn>
+						</p>
+					</div>
+					<q-card class="q-pb-xl q-pa-sm-xl">
 						<div class="row items-center">
-							<div class="col-6">
+							<div class="col-12 col-md-6">
 								<h3>Front-End</h3>
 								<h4>Look your best</h4>
 								<p>
@@ -36,7 +34,7 @@
 									intuitive and practical.
 								</p>
 							</div>
-							<div class="col-6">
+							<div class="col-12 col-md-6">
 								<div class="row items-center justify-center q-mb-lg">
 									<q-img class="icon_tech" :src="logo_html" spinner-color="white" contain><q-tooltip>HTML 5</q-tooltip></q-img>
 									<q-img class="icon_tech" :src="logo_css" spinner-color="white" contain><q-tooltip>CSS 3</q-tooltip></q-img>
@@ -53,9 +51,9 @@
 							</div>
 						</div>
 					</q-card>
-					<q-card class="q-pa-xl q-mb-xl">
+					<q-card class="q-pb-xl q-pa-sm-xl">
 						<div class="row items-center">
-							<div class="col-6">
+							<div class="col-12 col-md-6">
 								<h3>Back-End and Content Management Systems</h3>
 								<h4>Do what you want</h4>
 								<p>What's better than a beautiful house? A beautiful house with solid foundations.</p>
@@ -65,7 +63,7 @@
 								</p>
 								<p>I am intent on selling you on one solution: the one that will resonate with you.</p>
 							</div>
-							<div class="col-6">
+							<div class="col-12 col-md-6">
 								<div class="row items-center justify-center q-mb-lg">
 									<q-img class="icon_tech" :src="logo_laravel" spinner-color="white" contain><q-tooltip>Laravel</q-tooltip></q-img>
 								</div>
@@ -80,11 +78,11 @@
 					</q-card>
 					<h2>Projects</h2>
 					<Project id="broadsign">
-						<h3 class="title">broadsign.com</h3>
+						<h3 class="title q-mt-md-none">broadsign.com</h3>
 						<p></p>
 					</Project>
 					<Project id="gigi_retzo">
-						<h3 class="title">
+						<h3 class="title q-mt-md-none">
 							<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
 						</h3>
 						<p>
@@ -104,7 +102,7 @@
 						</div>
 					</Project>
 					<Project id="bokkle">
-						<h3 class="title">
+						<h3 class="title q-mt-md-none">
 							<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
 						</h3>
 						<p>
@@ -127,11 +125,10 @@
 						</div>
 					</Project>
 					<Project id="face_a_face">
-						<h3 class="title">Face à Face</h3>
+						<h3 class="title q-mt-md-none">Face à Face</h3>
 						<p></p>
 					</Project>
 				</div>
-				<div class="col-1"></div>
 			</div>
 		</div>
 	</q-page>
@@ -173,21 +170,113 @@ export default {
 		logo_prismic: logo_prismic,
 		logo_wordpress: logo_wordpress,
 	}),
-	methods: {},
-	created() {
-		setInterval(this.animateStars, 50);
+	methods: {
+		getScrollPercent() {
+			let h = document.documentElement,
+				b = document.body,
+				st = "scrollTop",
+				sh = "scrollHeight";
+			return ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+		},
+		adjustStarsPosition() {
+			if (this.$refs["bg_stars"]) {
+				this.$refs["bg_stars"].style.backgroundPositionY = `${this.getScrollPercent() * 4}%`;
+			}
+		},
+	},
+	created() {},
+	mounted() {
+		var playPromise = this.$refs["galaxy"].play();
+
+		if (playPromise !== undefined) {
+			playPromise.then((_) => {}).catch((e) => {});
+		}
+
+		window.addEventListener("scroll", this.adjustStarsPosition);
 	},
 };
 </script>
 
 <style lang="scss">
+@keyframes wave {
+	0% {
+		transform: rotate(8deg);
+	}
+	50% {
+		transform: rotate(-8deg);
+	}
+	100% {
+		transform: rotate(8deg);
+	}
+}
+
 body {
 	transition: background-color 1s;
 }
 
-body.body--dark {
+body.body--dark,
+body.body--light {
 	overflow-x: hidden;
-	background: #111;
+}
+
+.bg_stars {
+	z-index: 1;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	background: #000 url("../assets/bg_stars.png");
+
+	img {
+	}
+}
+
+.bg_galaxy {
+	height: 100vh;
+	width: auto;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index: 2;
+	transform: translateX(-50%);
+
+	video {
+		height: 100vh;
+		width: 200vh;
+		max-width: 1920px;
+		opacity: 0.3;
+		left: 0;
+	}
+}
+
+.hero {
+	height: 100vh;
+
+	.hi {
+		font-size: 0.6em;
+		line-height: 100%;
+	}
+
+	.q-btn {
+		position: relative;
+	}
+
+	.wave {
+		font-size: 300%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: translate(-50%, -20%);
+
+		.inner {
+			transform-origin: right bottom;
+			position: relative;
+			animation: wave 1s ease-in-out 0s infinite;
+			display: block;
+		}
+	}
 }
 
 .quote {
@@ -240,10 +329,6 @@ body.body--dark {
 	.row {
 		z-index: 10;
 		position: relative;
-	}
-
-	h3 {
-		margin-top: 16px;
 	}
 
 	&:before {

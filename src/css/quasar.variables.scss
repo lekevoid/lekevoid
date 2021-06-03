@@ -12,6 +12,8 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+// COLORS
+
 $primary : #0DF;
 $secondary : #00A;
 $accent : #9C27B0;
@@ -22,3 +24,15 @@ $positive : #080;
 $negative : #C00;
 $info : #CEF;
 $warning : #DF0;
+
+// TYPOGRAPHY
+
+$body-font-size:1rem;
+
+
+$h1: (size: 6rem, line-height: 100%, letter-spacing: normal, weight: 300) !default;
+$h2: (size: 3rem, line-height: 140%, letter-spacing: normal, weight: 300) !default;
+$h3: (size: 2.2rem, line-height: 140%, letter-spacing: normal, weight: 400) !default;
+$h4: (size: 1.5rem, line-height: 120%, letter-spacing: normal, weight: 400) !default;
+$h5: (size: 1.2rem, line-height: 120%rem, letter-spacing: normal, weight: 400) !default;
+$h6: (size: 1.1rem, line-height: 120%, letter-spacing: normal, weight: 500) !default;

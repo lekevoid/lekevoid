@@ -1,4 +1,36 @@
-// app global css in SCSS form
+@mixin absoluteCenter {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+html {
+	font-size: calc(max(22px, 3vw));
+}
+
+@media (min-width:$breakpoint-sm-min) {}
+
+@media (min-width:$breakpoint-md-min) {
+	html {
+		font-size: calc(max(18px, 2vw));
+	}
+}
+
+@media (min-width:$breakpoint-lg-min) {
+	html {
+		font-size: calc(clamp(16px, 1.4vw, 22px));
+	}
+}
+
+body {
+	font-size: 1rem;
+}
+
+body.body--dark {
+	background-color: $dark;
+}
+
 a {
 	color: $primary;
 	position: relative;

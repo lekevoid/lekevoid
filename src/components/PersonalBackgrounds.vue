@@ -168,7 +168,7 @@ body.body--light {
 	z-index: 1;
 
 	&.stars {
-		background: radial-gradient(ellipse at center bottom, #004 0%, #000 90%);
+		background: radial-gradient(ellipse at center bottom, #006 0%, #404 50%, #000 90%);
 		z-index: 2;
 		height: 100vh;
 		position: fixed;
@@ -239,6 +239,7 @@ body.body--light {
 	animation-delay: 0s;
 	animation-iteration-count: 1;
 	transform: scale(0);
+	z-index: 1;
 
 	&.small {
 		animation-name: starShineSmall;

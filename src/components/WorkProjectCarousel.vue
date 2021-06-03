@@ -1,7 +1,7 @@
 <template>
 	<q-card class="project q-pa-xl q-mb-xl">
 		<div class="row items-center">
-			<div class="col-6">
+			<div class="col-12 col-md-6">
 				<div :class="['screenshots_carousel', `current_${current}`]" @click="nextScreenshot()">
 					<q-img contain :src="require(`../assets/screenshot_${id}_01.jpg`)" v-if="screenshotExists(1)" />
 					<q-img contain :src="require(`../assets/screenshot_${id}_02.jpg`)" v-if="screenshotExists(2)" />
@@ -9,7 +9,7 @@
 					<q-img contain :src="require(`../assets/screenshot_${id}_04.jpg`)" v-if="screenshotExists(4)" />
 				</div>
 			</div>
-			<div class="col-6">
+			<div class="col-12 col-md-6">
 				<slot />
 			</div>
 		</div>
@@ -50,26 +50,33 @@ export default {
 </script>
 
 <style lang="scss">
+$minVW: 16vw;
+$minPX: 3.6rem;
+
 @mixin screenshotPos1 {
-	transform: rotate3d(1, -4, 0, -12deg) translate3d(150px, 120px, 200px);
+	transform: rotate3d(1, -4, 0, -12deg)
+		translate3d(min(#{$minVW * 1.5}, #{$minPX * 1.5}), min(#{$minVW * 1.2}, #{$minPX * 1.2}), min(#{$minVW * 2}, #{$minPX * 2}));
 	z-index: 4;
 	opacity: 1;
 }
 
 @mixin screenshotPos2 {
-	transform: rotate3d(1, -4, 0, -12deg) translate3d(100px, 70px, 100px);
+	transform: rotate3d(1, -4, 0, -12deg)
+		translate3d(min(#{$minVW * 1}, #{$minPX * 1}), min(#{$minVW * 0.7}, #{$minPX * 0.7}), min(#{$minVW * 1}, #{$minPX * 1}));
 	z-index: 3;
 	opacity: 0.7;
 }
 
 @mixin screenshotPos3 {
-	transform: rotate3d(1, -4, 0, -12deg) translate3d(50px, 20px, 0px);
+	transform: rotate3d(1, -4, 0, -12deg)
+		translate3d(min(#{$minVW * 0.5}, #{$minPX * 0.5}), min(#{$minVW * 0.2}, #{$minPX * 0.2}), min(#{$minVW * 0}, #{$minPX * 0}));
 	z-index: 2;
 	opacity: 0.7;
 }
 
 @mixin screenshotPos4 {
-	transform: rotate3d(1, -4, 0, -12deg) translate3d(0px, -30px, -100px);
+	transform: rotate3d(1, -4, 0, -12deg)
+		translate3d(min(#{$minVW * 0}, #{$minPX * 0}), min(#{$minVW * -0.3}, #{$minPX * -0.3}), min(#{$minVW * -1}, #{$minPX * -1}));
 	z-index: 1;
 	opacity: 0;
 }
@@ -97,10 +104,12 @@ export default {
 }
 
 .screenshots_carousel {
-	min-height: 400px;
+	height: 400px;
+	max-height: 50vw;
 	position: relative;
 	transform-style: preserve-3d;
 	perspective: 600px;
+	left: 2vw;
 
 	.q-img {
 		position: absolute;

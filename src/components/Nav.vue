@@ -1,19 +1,15 @@
 <template>
-	<div class="row nav_wrapper">
+	<header class="row">
 		<div class="col-1"></div>
 		<div class="col">
-			<nav
-				:class="['row items-center justify-end q-pt-lg q-pb-sm', `line_moves_${navLineDirection}`]"
-				style="position: relative; z-index: 10"
-				ref="top_nav"
-			>
+			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
 				<router-link dark v-for="(page, k) in pages" :to="{ name: page.name }" :key="k" :ref="`link_${page.name.toLowerCase()}`">
 					{{ page.name }}
 				</router-link>
 				<div class="underline" ref="nav_line"></div>
 			</nav>
 		</div>
-		<div class="col-1 flex flex-center q-pt-md">
+		<div class="themes col-1 flex justify-end">
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
 				<q-img class="theme_icon dark" v-if="!isDark" :src="icon_mode_dark" @click="$q.dark.set(true)" style="height: 30px; width: 30px">
 					<q-tooltip>Dark Mode</q-tooltip>
@@ -26,7 +22,7 @@
 			</transition>
 		</div>
 		<div class="col-1"></div>
-	</div>
+	</header>
 </template>
 
 <script>
@@ -112,6 +108,9 @@ body.body--dark {
 	nav {
 		a {
 			color: $linkColor;
+			&:after {
+				display: none;
+			}
 		}
 		.underline {
 			border-color: $linkColor;
@@ -131,13 +130,38 @@ body.body--light {
 	}
 }
 
-.nav_wrapper {
+header {
 	z-index: 100;
-	position: relative;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 }
 
+$padding: 1rem;
+
 nav {
-	position: relative;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding-right: $padding;
+	padding-bottom: $padding;
+	z-index: 10;
+	width: 100vw;
+	background: #000;
+	box-shadow: 0 0 20px #000;
+
+	&:before {
+		background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
+		height: 30px;
+		content: "";
+		pointer-events: none;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		transform: translateY(-100%);
+	}
 
 	a {
 		font-weight: bold;
@@ -149,7 +173,7 @@ nav {
 	.underline {
 		border-bottom: 2px solid #fff;
 		position: absolute;
-		bottom: 0;
+		bottom: #{$padding * 0.7};
 		width: auto;
 	}
 
@@ -163,6 +187,18 @@ nav {
 		.underline {
 			transition: left 0.3s ease-out 0.2s, right 0.3s ease-out 0s;
 		}
+	}
+}
+
+.themes {
+	position: fixed;
+	top: $padding;
+	right: $padding;
+
+	.fadeOut {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 
