@@ -1,28 +1,47 @@
 <template>
 	<div class="bgs">
-		<div class="bg stars" v-if="$q.dark.isActive">
-			<div v-for="num in numberOfStars" class="star s30" :id="`star_${num}`" :ref="`star_${num}`" :key="`star_${num}`"></div>
+		<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="10000">
+			<div class="bg stars" v-if="theme === 'dark'">
+				<div v-for="num in numberOfStars" class="star s30" :id="`star_${num}`" :ref="`star_${num}`" :key="`star_${num}`"></div>
+			</div>
+		</transition>
+		<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="10000">
+			<div class="bg sky" v-if="theme === 'light'"></div>
+		</transition>
+		<div class="bg mountains">
+			<img v-if="theme === 'dark'" :src="bg_mountains_dark" />
+			<img v-if="theme === 'light'" :src="bg_mountains_light" />
 		</div>
-		<div class="bg sky" v-if="!$q.dark.isActive"></div>
-		<div class="bg mountains"><img :src="bg_mountains" /></div>
 		<div class="bg black"></div>
 	</div>
 </template>
 
 <script>
-import bg_mountains from "../assets/bg_mountains.svg";
+import bg_mountains_dark from "../assets/bg_mountains_dark.svg";
+import bg_mountains_light from "../assets/bg_mountains_light.svg";
 
 export default {
 	name: "WorkBackgrounds",
 	props: {},
 	data: () => ({
-		bg_mountains: bg_mountains,
+		bg_mountains_dark: bg_mountains_dark,
+		bg_mountains_light: bg_mountains_light,
 
 		numberOfStars: 30,
 		starSizes: ["small", "med", "big"],
 		starSkews: ["s30", "s40"],
 		lastChosenStars: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+
+		skyAnimation: null,
 	}),
+	computed: {
+		theme() {
+			if (this.$q.dark.isActive) {
+				return "dark";
+			}
+			return "light";
+		},
+	},
 	methods: {
 		resetStar(num) {
 			const chosenStar = this.$refs[`star_${num}`][0];
@@ -58,9 +77,27 @@ export default {
 				}
 			}
 		},
+		animateClouds() {
+			console.log("fucking clouds !!!");
+		},
+		initAnimations() {
+			if (this.theme === "dark") {
+				clearInterval(this.skyAnimation);
+				this.skyAnimation = setInterval(this.animateStars, 50);
+			}
+			if (this.theme === "light") {
+				clearInterval(this.skyAnimation);
+				this.skyAnimation = setInterval(this.animateClouds, 50);
+			}
+		},
 	},
 	created() {
-		setInterval(this.animateStars, 50);
+		this.initAnimations();
+	},
+	watch: {
+		theme(t) {
+			this.initAnimations();
+		},
 	},
 };
 </script>
@@ -105,7 +142,10 @@ export default {
 body.body--light {
 	.bg {
 		&.mountains {
-			opacity: 0.2;
+		}
+		&.black {
+			background-color: #8daacc;
+			z-index: 3;
 		}
 	}
 }

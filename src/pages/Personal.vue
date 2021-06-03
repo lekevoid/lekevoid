@@ -67,6 +67,8 @@ export default {
 	data: () => ({
 		kevin_dark: kevin_dark,
 	}),
+	created(){
+	}
 };
 </script>
 

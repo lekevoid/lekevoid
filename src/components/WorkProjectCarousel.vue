@@ -1,5 +1,5 @@
 <template>
-	<q-card class="q-pa-xl q-mb-xl">
+	<q-card class="project q-pa-xl q-mb-xl">
 		<div class="row items-center">
 			<div class="col-6">
 				<div :class="['screenshots_carousel', `current_${current}`]" @click="nextScreenshot()">
@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="col-6">
-				<h3>{{ name }}</h3>
+				<slot />
 			</div>
 		</div>
 	</q-card>
@@ -21,10 +21,6 @@ export default {
 	name: "WorkBackgrounds",
 	props: {
 		id: {
-			type: String,
-			required: true,
-		},
-		name: {
 			type: String,
 			required: true,
 		},
@@ -76,6 +72,28 @@ export default {
 	transform: rotate3d(1, -4, 0, -12deg) translate3d(0px, -30px, -100px);
 	z-index: 1;
 	opacity: 0;
+}
+
+.project {
+	.title {
+		a {
+			color: #fff;
+
+			&:hover {
+				color: $primary;
+			}
+			&:after {
+				box-shadow: 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000;
+			}
+		}
+	}
+	.techs {
+		.q-img {
+			width: 30px;
+			height: 30px;
+			margin: auto 10px;
+		}
+	}
 }
 
 .screenshots_carousel {

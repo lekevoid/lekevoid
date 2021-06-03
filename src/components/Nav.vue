@@ -15,12 +15,12 @@
 		</div>
 		<div class="col-1 flex flex-center q-pt-md">
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
-				<q-img class="theme_icon dark" v-if="!$q.dark.isActive" :src="icon_mode_dark" @click="$q.dark.set(true)">
+				<q-img class="theme_icon dark" v-if="!isDark" :src="icon_mode_dark" @click="$q.dark.set(true)" style="height: 30px; width: 30px">
 					<q-tooltip>Dark Mode</q-tooltip>
 				</q-img>
 			</transition>
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
-				<q-img class="theme_icon light" v-if="$q.dark.isActive" :src="icon_mode_light" @click="$q.dark.set(false)">
+				<q-img class="theme_icon light" v-if="isDark" :src="icon_mode_light" @click="$q.dark.set(false)" style="height: 30px; width: 30px">
 					<q-tooltip>Light Mode</q-tooltip>
 				</q-img>
 			</transition>
@@ -50,6 +50,14 @@ export default {
 		icon_mode_light: icon_mode_light,
 		navLineDirection: "none",
 	}),
+	computed: {
+		isDark() {
+			if (this.$q.dark.isActive) {
+				return true;
+			}
+			return false;
+		},
+	},
 	methods: {
 		moveNavLine(from, to) {
 			const nav = this.$refs["top_nav"];
@@ -87,6 +95,7 @@ export default {
 		window.addEventListener("resize", this.initNavLine);
 	},
 	updated() {
+		console.log(this.$q.dark.isActive);
 		this.moveNavLine("", this.currentPage);
 	},
 	watch: {
@@ -124,6 +133,7 @@ body.body--light {
 
 .nav_wrapper {
 	z-index: 100;
+	position: relative;
 }
 
 nav {

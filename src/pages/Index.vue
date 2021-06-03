@@ -79,10 +79,57 @@
 						</div>
 					</q-card>
 					<h2>Projects</h2>
-					<Project id="broadsign" name="broadsign.com" />
-					<Project id="gigi_retzo" name="GigiRetzo.com" />
-					<Project id="bokkle" name="Bokkle" />
-					<Project id="face_a_face" name="Face à Face" />
+					<Project id="broadsign">
+						<h3 class="title">broadsign.com</h3>
+						<p></p>
+					</Project>
+					<Project id="gigi_retzo">
+						<h3 class="title">
+							<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
+						</h3>
+						<p>
+							<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">gigiretzo.com</a>
+						</p>
+						<p>The website of a talented artist based in Montreal, Canada.</p>
+						<h5 class="q-mb-sm">Features :</h5>
+						<ul>
+							<li>Full e-commerce allowing them to process orders and payments for their work</li>
+							<li>
+								CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their whereabouts
+							</li>
+						</ul>
+						<div class="techs row items-center">
+							<h5 class="q-mr-sm">Technologies used :</h5>
+							<q-img :src="logo_wordpress" contain />
+						</div>
+					</Project>
+					<Project id="bokkle">
+						<h3 class="title">
+							<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
+						</h3>
+						<p>
+							<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">bokkle.web.app</a>
+						</p>
+						<p>
+							A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young ones were
+							sleeping.
+						</p>
+						<h5 class="q-mb-sm">Features :</h5>
+						<ul>
+							<li>PWA capability : install as an app on your device and play offline</li>
+							<li>Customizable grid size and timer length</li>
+							<li>Dictionary UI connected to the Merriam-Webster API to validate words</li>
+							<li>Create a game and play remotely with friends !</li>
+						</ul>
+						<div class="techs row items-center">
+							<h5 class="q-mr-sm">Technologies used :</h5>
+							<q-img :src="logo_vue" contain />
+						</div>
+					</Project>
+					<Project id="face_a_face">
+						<h3 class="title">Face à Face</h3>
+						<p></p>
+					</Project>
 				</div>
 				<div class="col-1"></div>
 			</div>
@@ -134,6 +181,10 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+	transition: background-color 1s;
+}
+
 body.body--dark {
 	overflow-x: hidden;
 	background: #111;
