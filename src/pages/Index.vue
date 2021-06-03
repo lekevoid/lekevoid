@@ -180,7 +180,7 @@ export default {
 		},
 		adjustStarsPosition() {
 			if (this.$refs["bg_stars"]) {
-				this.$refs["bg_stars"].style.backgroundPositionY = `${this.getScrollPercent() * 4}%`;
+				this.$refs["bg_stars"].style.backgroundPositionY = `${this.getScrollPercent() * 2}%`;
 			}
 		},
 	},
@@ -235,12 +235,13 @@ body.body--light {
 
 .bg_galaxy {
 	height: 100vh;
-	width: auto;
+	width: 100vw;
 	position: absolute;
 	top: 0;
 	left: 50%;
 	z-index: 2;
 	transform: translateX(-50%);
+	object-fit: cover;
 
 	video {
 		height: 100vh;
