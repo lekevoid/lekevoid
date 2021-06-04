@@ -282,7 +282,7 @@ body.body--light {
 		left: 0;
 		object-fit: contain;
 		opacity: 0;
-		animation: galaxyTurn 20s linear 0s infinite;
+		animation: galaxyTurn 60s linear 0s infinite;
 
 		&.loaded {
 			opacity: 1;
