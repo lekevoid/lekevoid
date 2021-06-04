@@ -222,6 +222,9 @@ body.body--dark,
 body.body--light {
 	overflow-x: hidden;
 }
+.q-page {
+	overflow: hidden;
+}
 
 .bg_stars {
 	z-index: 1;
