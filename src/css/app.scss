@@ -15,6 +15,7 @@
 @include embed_font("Source Sans Pro", "SourceSansPro-Regular");
 
 html {
+	font-family: "Source Sans Pro";
 	font-size: calc(max(22px, 3vw));
 }
 
@@ -65,9 +66,7 @@ h6 {
 	font-family: "Source Sans Pro Bold";
 }
 
-p {
-	font-family: "Source Sans Pro";
-}
+p {}
 
 a {
 	color: $primary;

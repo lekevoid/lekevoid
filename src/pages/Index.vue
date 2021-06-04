@@ -2,7 +2,9 @@
 	<q-page>
 		<div class="bg_stars" ref="bg_stars"></div>
 		<div class="bg_galaxy flex flex-center">
-			<img src="../assets/galaxy_top.png" class="galaxy_rotating" />
+			<transition enter-active-class="animated fadeIn" appear :duration="600">
+				<img src="../assets/galaxy_top.png" class="galaxy" ref="galaxy" />
+			</transition>
 		</div>
 		<div class="content">
 			<div class="row">
@@ -12,14 +14,22 @@
 							<span class="hi">Hi, I'm</span>
 							<span class="kevin">Kevin.</span>
 						</h1>
-						<p>
-							<q-btn color="purple" class="q-pl-lg">
+						<p v-if="hello">😉 Nice to meet you !</p>
+						<p v-else>
+							<q-btn color="purple" class="q-pl-lg" @click="hello = true">
 								<span class="wave"><span class="inner">👋</span></span>
 								<span>Well hello there !</span>
 							</q-btn>
 						</p>
 					</div>
-					<q-card class="q-pb-xl q-pa-sm-xl">
+					<div class="row">
+						<div class="col-2"></div>
+						<div class="col">
+							<p>I'm a web developer, and currently developing this here site. Please come back soon to see some progress !</p>
+						</div>
+						<div class="col-2"></div>
+					</div>
+					<!-- <q-card class="q-pb-xl q-pa-sm-xl">
 						<div class="row items-center">
 							<div class="col-12 col-md-6">
 								<h3>Front-End</h3>
@@ -122,7 +132,7 @@
 					<Project id="face_a_face">
 						<h3 class="title q-mt-md-none">Face à Face</h3>
 						<p></p>
-					</Project>
+					</Project> -->
 				</div>
 			</div>
 		</div>
@@ -130,7 +140,7 @@
 </template>
 
 <script>
-import Project from "../components/WorkProjectCarousel.vue";
+// import Project from "../components/WorkProjectCarousel.vue";
 
 import logo_html from "../assets/logo_html.svg";
 import logo_css from "../assets/logo_css.svg";
@@ -149,7 +159,7 @@ import logo_wordpress from "../assets/logo_wordpress.svg";
 
 export default {
 	name: "PageIndex",
-	components: { Project },
+	// components: { Project },
 	data: () => ({
 		logo_html: logo_html,
 		logo_css: logo_css,
@@ -164,6 +174,8 @@ export default {
 		logo_netlify_cms: logo_netlify_cms,
 		logo_prismic: logo_prismic,
 		logo_wordpress: logo_wordpress,
+
+		hello: false,
 	}),
 	methods: {
 		getScrollPercent() {
@@ -187,6 +199,9 @@ export default {
 			playPromise.then((_) => {}).catch((e) => {});
 		} */
 
+		setTimeout(() => {
+			this.$refs["galaxy"].classList.add("loaded");
+		}, 100);
 		window.addEventListener("scroll", this.adjustStarsPosition);
 	},
 };
@@ -257,15 +272,21 @@ body.body--light {
 		left: 0;
 	}
 
-	.galaxy_rotating {
+	.galaxy {
 		position: relative;
 		height: 100vh;
+		transition: opacity 0.6s;
 		top: -8vh;
 		width: 200vh;
 		max-width: 1920px;
 		left: 0;
 		object-fit: contain;
+		opacity: 0;
 		animation: galaxyTurn 20s linear 0s infinite;
+
+		&.loaded {
+			opacity: 1;
+		}
 	}
 }
 

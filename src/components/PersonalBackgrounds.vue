@@ -168,7 +168,6 @@ body.body--light {
 	z-index: 1;
 
 	&.stars {
-		background: radial-gradient(ellipse at center bottom, #006 0%, #202 70%, #000 90%);
 		z-index: 2;
 		height: 100vh;
 		position: fixed;
@@ -179,6 +178,29 @@ body.body--light {
 		height: 100%;
 		top: 0;
 		z-index: 1;
+
+		&:before {
+			background: radial-gradient(ellipse at center bottom, #006 0%, #202 70%, #000 90%);
+			position: absolute;
+			left: 0;
+			z-index: 1;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+		}
+
+		&:after {
+			background: url("../assets/bg_stars.png");
+			position: absolute;
+			left: 0;
+			z-index: 2;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			opacity: 0.2;
+		}
 	}
 
 	&.sky {
