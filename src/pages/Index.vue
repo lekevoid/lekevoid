@@ -255,9 +255,13 @@ body.body--light {
 	}
 
 	.galaxy_rotating {
-		height: 100%;
+		position: relative;
+		height: 100vh;
+		top: -8vh;
+		width: 200vh;
+		max-width: 1920px;
+		left: 0;
 		object-fit: contain;
-		width: 100%;
 		animation: galaxyTurn 20s linear 0s infinite;
 	}
 }
