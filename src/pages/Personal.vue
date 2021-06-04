@@ -5,8 +5,7 @@
 			<div class="row">
 				<div class="col-1"></div>
 				<div class="col">
-					<h1>So who am I</h1>
-					<h2>...I hear you wonder ?</h2>
+					<h1>So who am I&nbsp;?</h1>
 					<div class="row">
 						<div class="col-12 col-md-4">
 							<q-img :src="kevin_dark" />
@@ -80,5 +79,6 @@ body.body--dark {
 .content {
 	position: relative;
 	z-index: 10;
+	padding-top: 6rem;
 }
 </style>

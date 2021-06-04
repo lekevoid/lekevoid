@@ -168,7 +168,7 @@ body.body--light {
 	z-index: 1;
 
 	&.stars {
-		background: radial-gradient(ellipse at center bottom, #006 0%, #404 50%, #000 90%);
+		background: radial-gradient(ellipse at center bottom, #006 0%, #202 70%, #000 90%);
 		z-index: 2;
 		height: 100vh;
 		position: fixed;

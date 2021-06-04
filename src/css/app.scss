@@ -1,9 +1,18 @@
-@mixin absoluteCenter {
-	left: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
+@mixin embed_font($name, $file) {
+	$filepath: "./fonts/"+$file;
+
+	@font-face {
+		font-family: $name;
+		font-display: swap;
+		src: url($filepath+".woff2") format("woff2"),
+			url($filepath+".ttf") format("ttf");
+	}
 }
+
+@include embed_font("Montserrat Black", "Montserrat-Black");
+@include embed_font("Montserrat Bold", "Montserrat-Bold");
+@include embed_font("Source Sans Pro Bold", "SourceSansPro-Bold");
+@include embed_font("Source Sans Pro", "SourceSansPro-Regular");
 
 html {
 	font-size: calc(max(22px, 3vw));
@@ -29,6 +38,35 @@ body {
 
 body.body--dark {
 	background-color: $dark;
+}
+
+h1 {
+	font-family: "Montserrat Black";
+	font-weight: 900;
+}
+
+h2 {
+	font-family: "Montserrat Bold";
+}
+
+h3 {
+	font-family: "Source Sans Pro Bold";
+}
+
+h4 {
+	font-family: "Source Sans Pro Bold";
+}
+
+h5 {
+	font-family: "Source Sans Pro Bold";
+}
+
+h6 {
+	font-family: "Source Sans Pro Bold";
+}
+
+p {
+	font-family: "Source Sans Pro";
 }
 
 a {

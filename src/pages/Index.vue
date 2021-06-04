@@ -2,12 +2,7 @@
 	<q-page>
 		<div class="bg_stars" ref="bg_stars"></div>
 		<div class="bg_galaxy flex flex-center">
-			<video autoplay loop muted ref="galaxy">
-				<source src="../assets/galaxy_rotating_hd.mp4" type="video/mp4" />
-				<source src="../assets/galaxy_rotating_md.mp4" type="video/mp4" />
-				<source src="../assets/galaxy_rotating_sd.mp4" type="video/mp4" />
-				<img src="../assets/galaxy_static.jpg" />
-			</video>
+			<img src="../assets/galaxy_top.png" class="galaxy_rotating" />
 		</div>
 		<div class="content">
 			<div class="row">
@@ -186,11 +181,11 @@ export default {
 	},
 	created() {},
 	mounted() {
-		var playPromise = this.$refs["galaxy"].play();
+		/* var playPromise = this.$refs["galaxy"].play();
 
 		if (playPromise !== undefined) {
 			playPromise.then((_) => {}).catch((e) => {});
-		}
+		} */
 
 		window.addEventListener("scroll", this.adjustStarsPosition);
 	},
@@ -207,6 +202,15 @@ export default {
 	}
 	100% {
 		transform: rotate(8deg);
+	}
+}
+
+@keyframes galaxyTurn {
+	0% {
+		transform: rotate3d(3, 2, 0, 50deg) rotate(0deg);
+	}
+	100% {
+		transform: rotate3d(3, 2, 0, 50deg) rotate(360deg);
 	}
 }
 
@@ -228,13 +232,10 @@ body.body--light {
 	left: 0;
 	top: 0;
 	background: #000 url("../assets/bg_stars.png");
-
-	img {
-	}
 }
 
 .bg_galaxy {
-	height: 100vh;
+	height: 90vh;
 	width: 100vw;
 	position: absolute;
 	top: 0;
@@ -242,6 +243,8 @@ body.body--light {
 	z-index: 2;
 	transform: translateX(-50%);
 	object-fit: cover;
+	perspective: 600px;
+	transform-style: preserve-3d;
 
 	video {
 		height: 100vh;
@@ -250,10 +253,18 @@ body.body--light {
 		opacity: 0.3;
 		left: 0;
 	}
+
+	.galaxy_rotating {
+		height: 100%;
+		object-fit: contain;
+		width: 100%;
+		animation: galaxyTurn 20s linear 0s infinite;
+	}
 }
 
 .hero {
-	height: 100vh;
+	height: 90vh;
+	margin-bottom: 10vh;
 
 	.hi {
 		font-size: 0.6em;

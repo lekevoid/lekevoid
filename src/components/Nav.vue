@@ -2,7 +2,7 @@
 	<header class="row">
 		<div class="col-1"></div>
 		<div class="col">
-			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
+			<nav :class="['row items-center justify-end q-pt-md q-pb-sm q-pt-md-lg', `line_moves_${navLineDirection}`]" ref="top_nav">
 				<router-link dark v-for="(page, k) in pages" :to="{ name: page.name }" :key="k" :ref="`link_${page.name.toLowerCase()}`">
 					{{ page.name }}
 				</router-link>
@@ -149,7 +149,6 @@ nav {
 	z-index: 10;
 	width: 100vw;
 	background: #000;
-	box-shadow: 0 0 20px #000;
 
 	&:before {
 		background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
@@ -206,5 +205,14 @@ nav {
 	height: 30px;
 	width: 30px;
 	cursor: pointer;
+}
+
+@media (min-width: $breakpoint-md-min) {
+	nav {
+		position: relative;
+		width: 100%;
+		padding-right: 0;
+		background: transparent none;
+	}
 }
 </style>
