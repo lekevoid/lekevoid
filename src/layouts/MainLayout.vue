@@ -33,9 +33,6 @@ export default {
 .q-page-container {
 	position: relative;
 }
-.q-page {
-	padding: 0 20px 100px;
-}
 
 .animated {
 	&.fadeIn {

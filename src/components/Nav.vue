@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import icon_mode_dark from "../assets/icon_mode_dark.svg";
-import icon_mode_light from "../assets/icon_mode_light.svg";
+import icon_mode_dark from "../img/icon_mode_dark.svg";
+import icon_mode_light from "../img/icon_mode_light.svg";
 
 export default {
 	name: "Nav",

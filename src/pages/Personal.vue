@@ -17,7 +17,7 @@
 <script>
 import Backgrounds from "../components/PersonalBackgrounds.vue";
 
-import kevin_dark from "../assets/kevin_dark.jpg";
+import kevin_dark from "../img/kevin_dark.jpg";
 
 export default {
 	name: "PagePersonal",

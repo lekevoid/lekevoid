@@ -2,12 +2,7 @@
 	<q-card class="project q-pa-xl q-mb-xl">
 		<div class="row items-center">
 			<div class="col-12 col-md-6">
-				<div :class="['screenshots_carousel', `current_${current}`]" @click="nextScreenshot()">
-					<q-img contain :src="require(`../assets/screenshot_${id}_01.jpg`)" v-if="screenshotExists(1)" />
-					<q-img contain :src="require(`../assets/screenshot_${id}_02.jpg`)" v-if="screenshotExists(2)" />
-					<q-img contain :src="require(`../assets/screenshot_${id}_03.jpg`)" v-if="screenshotExists(3)" />
-					<q-img contain :src="require(`../assets/screenshot_${id}_04.jpg`)" v-if="screenshotExists(4)" />
-				</div>
+				<Screenshots :list="screenshots" />
 			</div>
 			<div class="col-12 col-md-6">
 				<slot />
@@ -17,8 +12,11 @@
 </template>
 
 <script>
+import Screenshots from "./ProjectScreenshots.vue";
+
 export default {
 	name: "WorkBackgrounds",
+	components: { Screenshots },
 	props: {
 		id: {
 			type: String,
@@ -26,17 +24,41 @@ export default {
 		},
 	},
 	data: () => ({
-		current: 1,
+		screenshots: { desktop: [], mobile: [] },
 	}),
+	computed: {},
 	methods: {
-		screenshotExists(num) {
+		getScreenshots() {
+			for (let x = 1; x <= 9; x++) {
+				try {
+					const d = require(`../img/screenshots/${this.id}_0${x}_desktop.jpg`);
+					this.screenshots.desktop.push(d);
+				} catch (e) {
+					if (this.screenshots.desktop.length === 0) {
+						console.log("No Desktop screenshot available for project", this.id);
+						return false;
+					}
+				}
+
+				try {
+					const m = require(`../img/screenshots/${this.id}_0${x}_mobile.jpg`);
+					this.screenshots.mobile.push(m);
+				} catch (e) {
+					if (this.screenshots.mobile.length === 0) {
+						console.log("No Mobile screenshot available for project", this.id);
+						return false;
+					}
+				}
+			}
+		},
+		/* screenshotExists(num) {
 			try {
-				const exists = require(`../assets/screenshot_${this.id}_0${num}.jpg`);
+				const exists = require(`../img/screenshot_${this.id}_0${num}.jpg`);
 				return true;
 			} catch (e) {
 				return false;
 			}
-		},
+		},*/
 		nextScreenshot() {
 			if (this.current >= 4) {
 				this.current = 1;
@@ -45,11 +67,16 @@ export default {
 			}
 		},
 	},
-	created() {},
+	created() {
+		this.getScreenshots();
+	},
 };
 </script>
 
 <style lang="scss">
+</style>
+
+<!-- <style lang="scss">
 $minVW: 16vw;
 $minPX: 3.6rem;
 
@@ -190,4 +217,4 @@ $minPX: 3.6rem;
 		}
 	}
 }
-</style>
+</style> -->

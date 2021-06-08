@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import bg_mountains_dark from "../assets/bg_mountains_dark.svg";
-import bg_mountains_light from "../assets/bg_mountains_light.svg";
+import bg_mountains_dark from "../img/bg_mountains_dark.svg";
+import bg_mountains_light from "../img/bg_mountains_light.svg";
 
 export default {
 	name: "WorkBackgrounds",
@@ -191,7 +191,7 @@ body.body--light {
 		}
 
 		&:after {
-			background: url("../assets/bg_stars.png");
+			background: url("../img/bg_stars.png");
 			position: absolute;
 			left: 0;
 			z-index: 2;
