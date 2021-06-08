@@ -51,7 +51,7 @@
 							</ul>
 							<div class="techs row items-center">
 								<h5 class="q-mr-sm">Technologies used :</h5>
-								<q-img :src="logo_gatsby" contain />
+								<q-img :src="logo_gatsby" class="icon_tech" contain />
 							</div>
 							<p>
 								<q-btn color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
@@ -71,7 +71,7 @@
 							</ul>
 							<div class="techs row items-center">
 								<h5 class="q-mr-sm">Technologies used :</h5>
-								<q-img :src="logo_wordpress" contain />
+								<q-img :src="logo_wordpress" class="icon_tech" contain />
 							</div>
 							<p>
 								<q-btn color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
@@ -190,7 +190,7 @@
 </template>
 
 <script>
-import Project from "../components/WorkProjectCarousel.vue";
+import Project from "../components/Project.vue";
 
 import logo_html from "../img/logo_html.svg";
 import logo_css from "../img/logo_css.svg";

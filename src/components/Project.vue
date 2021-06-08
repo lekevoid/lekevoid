@@ -1,21 +1,22 @@
 <template>
-	<q-card class="project q-pa-xl q-mb-xl">
-		<div class="row items-center">
-			<div class="col-12 col-md-6">
+	<div class="project flex">
+		<div class="row items-start">
+			<div class="col col-12 col-md-6">
 				<Screenshots :list="screenshots" />
 			</div>
-			<div class="col-12 col-md-6">
+			<div class="col col-12 col-md-1"></div>
+			<div class="col col-12 col-md-5">
 				<slot />
 			</div>
 		</div>
-	</q-card>
+	</div>
 </template>
 
 <script>
 import Screenshots from "./ProjectScreenshots.vue";
 
 export default {
-	name: "WorkBackgrounds",
+	name: "Project",
 	components: { Screenshots },
 	props: {
 		id: {
@@ -59,13 +60,6 @@ export default {
 				return false;
 			}
 		},*/
-		nextScreenshot() {
-			if (this.current >= 4) {
-				this.current = 1;
-			} else {
-				this.current++;
-			}
-		},
 	},
 	created() {
 		this.getScreenshots();
@@ -73,7 +67,18 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.project {
+	width: 100%;
+
+	.row {
+		width: 100%;
+	}
+
+	.col {
+		position: relative;
+	}
+}
 </style>
 
 <!-- <style lang="scss">
