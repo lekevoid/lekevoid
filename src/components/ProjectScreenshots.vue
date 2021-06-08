@@ -60,6 +60,7 @@ export default {
 	.q-img {
 		position: absolute;
 		opacity: 0;
+		/* transform: translateY(20%); */
 
 		&.current {
 			animation: 1s ease-out 0s 1 normal forwards running enterScreenshot;
@@ -77,7 +78,6 @@ export default {
 			width: 82.8%;
 			left: 8.5%;
 			top: 8.1%;
-			transform: translateY(20%);
 		}
 	}
 
@@ -95,6 +95,10 @@ export default {
 			left: 41%;
 			top: 10.2%;
 			border-radius: 2%;
+
+			&.current {
+				animation-duration: 0.6s;
+			}
 		}
 	}
 }

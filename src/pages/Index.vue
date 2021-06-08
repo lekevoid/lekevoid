@@ -49,17 +49,19 @@
 							<ul>
 								<li>All the things</li>
 							</ul>
-							<div class="techs row items-center">
-								<h5 class="q-mr-md">Technologies used :</h5>
-								<q-img :src="logo_gatsby" class="icon_tech" contain>
-									<q-tooltip>GatsbyJS</q-tooltip>
-								</q-img>
-								<q-img :src="logo_wordpress" class="icon_tech" contain>
-									<q-tooltip>Wordpress</q-tooltip>
-								</q-img>
+							<div class="techs row no-wrap items-center">
+								<h5 class="no-wrap q-mr-md">Technologies used :</h5>
+								<div class="techs_list col">
+									<q-img :src="logo_gatsby" class="icon_tech" contain>
+										<q-tooltip>GatsbyJS</q-tooltip>
+									</q-img>
+									<q-img :src="logo_wordpress" class="icon_tech" contain>
+										<q-tooltip>Wordpress</q-tooltip>
+									</q-img>
+								</div>
 							</div>
 							<p>
-								<q-btn color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
+								<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
 						<Project id="gigi_retzo" invert>
@@ -74,17 +76,19 @@
 									CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their whereabouts
 								</li>
 							</ul>
-							<div class="techs row items-center">
-								<h5 class="q-mr-md">Technologies used :</h5>
-								<q-img :src="logo_wordpress" class="icon_tech" contain>
-									<q-tooltip>Wordpress</q-tooltip>
-								</q-img>
-								<q-img :src="logo_woocommerce" class="icon_tech" contain>
-									<q-tooltip>Woocommerce</q-tooltip>
-								</q-img>
+							<div class="techs row no-wrap items-center">
+								<h5 class="no-wrap q-mr-md">Technologies used :</h5>
+								<div class="techs_list col">
+									<q-img :src="logo_wordpress" class="icon_tech" contain>
+										<q-tooltip>Wordpress</q-tooltip>
+									</q-img>
+									<q-img :src="logo_woocommerce" class="icon_tech" contain>
+										<q-tooltip>Woocommerce</q-tooltip>
+									</q-img>
+								</div>
 							</div>
 							<p>
-								<q-btn color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
+								<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
 					</div>
@@ -384,8 +388,8 @@ body.body--light {
 } */
 
 .hero {
-	height: 90vh;
-	margin-bottom: 10vh;
+	height: 80vh;
+	margin-bottom: 20vh;
 
 	.me {
 		border: 2px ridge #fff;
@@ -516,6 +520,13 @@ body.body--light {
 	filter: drop-shadow(-1px -1px 1px rgba(#ddf, 0.5)) drop-shadow(2px 2px 1px rgba(#005, 1));
 	height: 50px;
 	width: 60px;
-	margin: 0 10px;
+	margin: 0 8px;
+}
+
+@media (min-width: $breakpoint-md-min) {
+	.hero {
+		height: 90vh;
+		margin-bottom: 10vh;
+	}
 }
 </style>

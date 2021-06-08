@@ -1,11 +1,10 @@
 <template>
 	<div :class="['project', 'flex', { invert: invert }]">
-		<div class="row items-start">
+		<div class="row items-start q-col-gutter-x-xl">
 			<div class="col col-12 col-md-6">
 				<Screenshots :list="screenshots" />
 			</div>
-			<div class="col col-12 col-md-1"></div>
-			<div class="col col-12 col-md-5">
+			<div class="col col-12 col-md-6">
 				<slot />
 			</div>
 		</div>
@@ -75,6 +74,12 @@ export default {
 .project {
 	width: 100%;
 	margin-bottom: 120px;
+
+	&.invert {
+		& > .row {
+			flex-flow: row-reverse;
+		}
+	}
 
 	.row {
 		width: 100%;

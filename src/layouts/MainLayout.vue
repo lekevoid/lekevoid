@@ -37,6 +37,7 @@ export default {
 .animated {
 	&.fadeIn {
 	}
+
 	&.fadeOut {
 		position: absolute;
 		left: 0;

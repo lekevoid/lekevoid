@@ -74,20 +74,22 @@ a {
 	text-decoration: none;
 	transition: color 0.3s;
 
-	&:hover {
-		&:after {
-			max-width: 100%;
+	&:not(.q-btn) {
+		&:hover {
+			&:after {
+				max-width: 100%;
+			}
 		}
-	}
 
-	&:after {
-		border-bottom: 2px solid $primary;
-		bottom: -2px;
-		content: "";
-		left: 0;
-		max-width: 0%;
-		position: absolute;
-		transition: max-width 0.3s;
-		width: 100%;
+		&:after {
+			border-bottom: 2px solid $primary;
+			bottom: -2px;
+			content: "";
+			left: 0;
+			max-width: 0%;
+			position: absolute;
+			transition: max-width 0.3s;
+			width: 100%;
+		}
 	}
 }
