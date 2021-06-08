@@ -50,14 +50,19 @@
 								<li>All the things</li>
 							</ul>
 							<div class="techs row items-center">
-								<h5 class="q-mr-sm">Technologies used :</h5>
-								<q-img :src="logo_gatsby" class="icon_tech" contain />
+								<h5 class="q-mr-md">Technologies used :</h5>
+								<q-img :src="logo_gatsby" class="icon_tech" contain>
+									<q-tooltip>GatsbyJS</q-tooltip>
+								</q-img>
+								<q-img :src="logo_wordpress" class="icon_tech" contain>
+									<q-tooltip>Wordpress</q-tooltip>
+								</q-img>
 							</div>
 							<p>
 								<q-btn color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
-						<Project id="gigi_retzo">
+						<Project id="gigi_retzo" invert>
 							<h3 class="title q-mt-md-none">
 								<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
 							</h3>
@@ -70,8 +75,13 @@
 								</li>
 							</ul>
 							<div class="techs row items-center">
-								<h5 class="q-mr-sm">Technologies used :</h5>
-								<q-img :src="logo_wordpress" class="icon_tech" contain />
+								<h5 class="q-mr-md">Technologies used :</h5>
+								<q-img :src="logo_wordpress" class="icon_tech" contain>
+									<q-tooltip>Wordpress</q-tooltip>
+								</q-img>
+								<q-img :src="logo_woocommerce" class="icon_tech" contain>
+									<q-tooltip>Woocommerce</q-tooltip>
+								</q-img>
 							</div>
 							<p>
 								<q-btn color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
@@ -192,20 +202,21 @@
 <script>
 import Project from "../components/Project.vue";
 
-import logo_html from "../img/logo_html.svg";
-import logo_css from "../img/logo_css.svg";
-import logo_sass from "../img/logo_sass.svg";
-import logo_vue from "../img/logo_vue.svg";
-import logo_react from "../img/logo_react.svg";
-import logo_svelte from "../img/logo_svelte.svg";
-import logo_gatsby from "../img/logo_gatsby.svg";
+import logo_html from "../img/logos/html.svg";
+import logo_css from "../img/logos/css.svg";
+import logo_sass from "../img/logos/sass.svg";
+import logo_vue from "../img/logos/vue.svg";
+import logo_react from "../img/logos/react.svg";
+import logo_svelte from "../img/logos/svelte.svg";
+import logo_gatsby from "../img/logos/gatsby.svg";
 
-import logo_php from "../img/logo_php.svg";
-import logo_laravel from "../img/logo_laravel.svg";
-import logo_agility from "../img/logo_agility.svg";
-import logo_netlify_cms from "../img/logo_netlify_cms.svg";
-import logo_prismic from "../img/logo_prismic.svg";
-import logo_wordpress from "../img/logo_wordpress.svg";
+import logo_php from "../img/logos/php.svg";
+import logo_laravel from "../img/logos/laravel.svg";
+import logo_agility from "../img/logos/agility.svg";
+import logo_netlify_cms from "../img/logos/netlify_cms.svg";
+import logo_prismic from "../img/logos/prismic.svg";
+import logo_wordpress from "../img/logos/wordpress.svg";
+import logo_woocommerce from "../img/logos/woocommerce.svg";
 
 export default {
 	name: "PageIndex",
@@ -224,6 +235,7 @@ export default {
 		logo_netlify_cms: logo_netlify_cms,
 		logo_prismic: logo_prismic,
 		logo_wordpress: logo_wordpress,
+		logo_woocommerce: logo_woocommerce,
 
 		hello: false,
 	}),
@@ -502,8 +514,8 @@ body.body--light {
 
 .icon_tech {
 	filter: drop-shadow(-1px -1px 1px rgba(#ddf, 0.5)) drop-shadow(2px 2px 1px rgba(#005, 1));
-	height: 100px;
-	width: 100px;
-	margin: 0 20px;
+	height: 50px;
+	width: 60px;
+	margin: 0 10px;
 }
 </style>

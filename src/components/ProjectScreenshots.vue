@@ -1,6 +1,5 @@
 <template>
 	<div :class="['screenshots', `current_${current}`]" @click="nextScreenshot()">
-		<Screenshots :list="screenshots" />
 		<div class="device desktop">
 			<q-img v-for="(img, k) in list.desktop" :src="img" :key="`ss_d_${k}`" :class="[{ current: current === k }]" />
 		</div>
@@ -24,7 +23,6 @@ export default {
 	},
 	methods: {
 		nextScreenshot() {
-			console.log(this.list.desktop.length);
 			if (this.current >= this.list.desktop.length - 1) {
 				this.current = 0;
 			} else {
@@ -87,7 +85,7 @@ export default {
 		background-image: url("../img/device_mobile.svg");
 		position: absolute;
 		right: 0;
-		left: 25%;
+		left: 30%;
 		bottom: 0;
 		padding-top: 40%;
 

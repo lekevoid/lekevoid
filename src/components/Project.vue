@@ -1,5 +1,5 @@
 <template>
-	<div class="project flex">
+	<div :class="['project', 'flex', { invert: invert }]">
 		<div class="row items-start">
 			<div class="col col-12 col-md-6">
 				<Screenshots :list="screenshots" />
@@ -22,6 +22,10 @@ export default {
 		id: {
 			type: String,
 			required: true,
+		},
+		invert: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	data: () => ({
@@ -70,6 +74,7 @@ export default {
 <style lang="scss" scoped>
 .project {
 	width: 100%;
+	margin-bottom: 120px;
 
 	.row {
 		width: 100%;
