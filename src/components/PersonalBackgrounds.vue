@@ -36,10 +36,7 @@ export default {
 	}),
 	computed: {
 		theme() {
-			if (this.$q.dark.isActive) {
-				return "dark";
-			}
-			return "light";
+			return this.$q.dark.isActive ? "dark" : "light";
 		},
 	},
 	methods: {

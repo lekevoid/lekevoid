@@ -2,7 +2,7 @@
 	<q-layout view="lHh Lpr lFf" :class="`page_${currentPage}`">
 		<Nav :current-page="currentPage" :pages="pages" />
 		<q-page-container>
-			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="1000">
+			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in" :duration="300">
 				<router-view />
 			</transition>
 		</q-page-container>
@@ -34,16 +34,20 @@ export default {
 	position: relative;
 }
 
+.q-page {
+	overflow-x: hidden;
+}
+
 .animated {
 	&.fadeIn {
 	}
 
-	&.fadeOut {
+	/* &.fadeOut {
 		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
 		height: 100%;
-	}
+	} */
 }
 </style>
