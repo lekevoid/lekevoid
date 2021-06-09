@@ -1,11 +1,11 @@
 <template>
 	<q-page class="q-px-lg q-px-md-md">
-		<div class="row">
+		<div class="page_content row">
 			<div class="col-md-2"></div>
 			<div class="col">
 				<div class="hero flex flex-center column no-wrap">
 					<div class="me q-mb-xl">
-						<q-img src="../img/kevin.jpg" :ratio="1" contain />
+						<q-img src="../img/kevin.webp" :ratio="1" contain />
 					</div>
 					<h1 class="flex column items-center q-mt-none">
 						<span class="hi">Hi, I'm</span>
@@ -239,7 +239,6 @@ body {
 
 body.body--dark,
 body.body--light {
-	overflow-x: hidden;
 }
 
 body.body--dark {

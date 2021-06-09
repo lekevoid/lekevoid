@@ -30,27 +30,10 @@ export default {
 </script>
 
 <style lang="scss">
-.q-page-container {
+.page_content {
 	position: relative;
 	max-width: 1600px;
 	margin-right: auto;
 	margin-left: auto;
-}
-
-.q-page {
-	overflow-x: hidden;
-}
-
-.animated {
-	&.fadeIn {
-	}
-
-	/* &.fadeOut {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-	} */
 }
 </style>

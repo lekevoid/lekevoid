@@ -43,7 +43,7 @@ export default {
 		getScreenshots() {
 			for (let x = 1; x <= 9; x++) {
 				try {
-					const d = require(`../img/screenshots/${this.id}_0${x}_desktop.jpg`);
+					const d = require(`../img/screenshots/${this.id}_0${x}_desktop.webp`);
 					this.screenshots.desktop.push(d);
 				} catch (e) {
 					if (this.screenshots.desktop.length === 0) {
@@ -53,7 +53,7 @@ export default {
 				}
 
 				try {
-					const m = require(`../img/screenshots/${this.id}_0${x}_mobile.jpg`);
+					const m = require(`../img/screenshots/${this.id}_0${x}_mobile.webp`);
 					this.screenshots.mobile.push(m);
 				} catch (e) {
 					if (this.screenshots.mobile.length === 0) {

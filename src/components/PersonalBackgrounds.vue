@@ -188,7 +188,7 @@ body.body--light {
 		}
 
 		&:after {
-			background: url("../img/bg_stars.png");
+			background: url("../img/bg_stars.webp");
 			position: absolute;
 			left: 0;
 			z-index: 2;

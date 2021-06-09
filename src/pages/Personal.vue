@@ -1,7 +1,7 @@
 <template>
 	<q-page>
 		<Backgrounds />
-		<div class="row q-pa-xl">
+		<div class="page_content row q-pa-xl">
 			<div class="col">
 				<h1>So who am I&nbsp;?</h1>
 				<p>Stay tuned to find out...</p>
@@ -50,8 +50,6 @@
 <script>
 import Backgrounds from "../components/PersonalBackgrounds.vue";
 
-import kevin_dark from "../img/kevin_dark.jpg";
-
 export default {
 	name: "PagePersonal",
 	components: { Backgrounds },
@@ -64,7 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 body.body--dark {
-	overflow-x: hidden;
 	background: #000;
 }
 
