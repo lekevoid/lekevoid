@@ -2,7 +2,7 @@
 	<div :class="['project', 'flex', { invert: invert }]">
 		<div class="row items-start q-col-gutter-x-xl">
 			<div class="col col-12 col-md-6">
-				<Screenshots :list="screenshots" />
+				<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" />
 			</div>
 			<div class="col col-12 col-md-6">
 				<slot />
@@ -23,6 +23,14 @@ export default {
 			required: true,
 		},
 		invert: {
+			type: Boolean,
+			default: false,
+		},
+		hideDesktop: {
+			type: Boolean,
+			default: false,
+		},
+		hideMobile: {
 			type: Boolean,
 			default: false,
 		},

@@ -32,6 +32,9 @@ export default {
 <style lang="scss">
 .q-page-container {
 	position: relative;
+	max-width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .q-page {

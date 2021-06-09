@@ -1,9 +1,9 @@
 <template>
 	<div :class="['screenshots', `current_${current}`]" @click="nextScreenshot()">
-		<div class="device desktop">
+		<div class="device desktop" v-if="!hideDesktop">
 			<q-img v-for="(img, k) in list.desktop" :src="img" :key="`ss_d_${k}`" :class="[{ current: current === k }]" />
 		</div>
-		<div class="device mobile">
+		<div class="device mobile" v-if="!hideMobile">
 			<q-img v-for="(img, k) in list.mobile" :src="img" :key="`ss_d_${k}`" :class="[{ current: current === k }]" />
 		</div>
 	</div>
@@ -19,6 +19,14 @@ export default {
 		list: {
 			type: Object,
 			required: true,
+		},
+		hideDesktop: {
+			type: Boolean,
+			default: false,
+		},
+		hideMobile: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	methods: {

@@ -84,7 +84,7 @@ export default {
 			}
 			if (this.theme === "light") {
 				clearInterval(this.skyAnimation);
-				this.skyAnimation = setInterval(this.animateClouds, 50);
+				// this.skyAnimation = setInterval(this.animateClouds, 50);
 			}
 		},
 	},

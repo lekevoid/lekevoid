@@ -1,11 +1,5 @@
 <template>
-	<q-page class="q-px-md">
-		<!-- <div class="bg_stars" ref="bg_stars"></div>
-		<div class="bg_galaxy flex flex-center">
-			<transition enter-active-class="animated fadeIn" appear :duration="600">
-				<img src="../img/galaxy_top.png" class="galaxy" ref="galaxy" />
-			</transition>
-		</div> -->
+	<q-page class="q-px-lg q-px-md-md">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col">
@@ -29,7 +23,7 @@
 					<div class="col column no-wrap justify-center items-end text-right">
 						<div class="overline" v-scroll-fire="scaleFromRight"></div>
 						<h2>What I do</h2>
-						<p>I might call myself a web developer. But really, I find solutions.</p>
+						<p>I find <em>solutions</em> and <em>develop</em> them.</p>
 						<p>
 							My aim is to connect you with the solution that works for you and your business. This is why I avoid attaching myself to a
 							particular language, framework or tool. What matters is what will help you.
@@ -94,7 +88,7 @@
 								<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
-						<Project id="bokkle">
+						<Project id="bokkle" hide-mobile>
 							<h3 class="title q-mt-md-none">
 								<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
 							</h3>

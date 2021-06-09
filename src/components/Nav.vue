@@ -105,27 +105,40 @@ export default {
 <style lang="scss" scoped>
 body.body--dark {
 	$linkColor: #fff;
+
 	nav {
+		background: #000;
+
 		a {
 			color: $linkColor;
-			&:after {
-				display: none;
-			}
 		}
+
 		.underline {
 			border-color: $linkColor;
+		}
+
+		&:before {
+			background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
 		}
 	}
 }
 
 body.body--light {
-	$linkColor: #004;
+	$linkColor: $secondary;
+
 	nav {
+		background: #fff;
+
 		a {
 			color: $linkColor;
 		}
+
 		.underline {
 			border-color: $linkColor;
+		}
+
+		&:before {
+			background: linear-gradient(to top, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
 		}
 	}
 }
@@ -148,10 +161,8 @@ nav {
 	padding-bottom: $padding;
 	z-index: 10;
 	width: 100vw;
-	background: #000;
 
 	&:before {
-		background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
 		height: 30px;
 		content: "";
 		pointer-events: none;
@@ -167,6 +178,10 @@ nav {
 		text-decoration: none;
 		margin: 0 5px;
 		padding: 0 10px;
+
+		&:after {
+			display: none;
+		}
 	}
 
 	.underline {
@@ -208,11 +223,14 @@ nav {
 }
 
 @media (min-width: $breakpoint-md-min) {
-	nav {
-		position: relative;
-		width: 100%;
-		padding-right: 0;
-		background: transparent none;
+	body.body--dark,
+	body.body--light {
+		nav {
+			position: relative;
+			width: 100%;
+			padding-right: 0;
+			background: transparent none;
+		}
 	}
 }
 </style>
