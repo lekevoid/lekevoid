@@ -1,7 +1,7 @@
 <template>
 	<div :class="['project', 'flex', { invert: invert }]">
 		<div class="row items-start q-col-gutter-x-xl">
-			<div class="col col-12 col-md-6">
+			<div class="col col-12 col-md-6 q-mb-md">
 				<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" />
 			</div>
 			<div class="col col-12 col-md-6">

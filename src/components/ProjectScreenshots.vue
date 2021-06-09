@@ -1,5 +1,6 @@
 <template>
 	<div :class="['screenshots', `current_${current}`]" @click="nextScreenshot()">
+		<div class="shadow"></div>
 		<div class="device desktop" v-if="!hideDesktop">
 			<q-img v-for="(img, k) in list.desktop" :src="img" :key="`ss_d_${k}`" :class="[{ current: current === k }]" />
 		</div>
@@ -50,6 +51,18 @@ export default {
 	100% {
 		opacity: 1;
 		transform: translateY(0%);
+	}
+}
+
+body.body--dark {
+	.shadow {
+		background-color: #111;
+	}
+}
+
+body.body--light {
+	.shadow {
+		background-color: #ddd;
 	}
 }
 
@@ -109,5 +122,16 @@ export default {
 			}
 		}
 	}
+}
+
+.shadow {
+	border-radius: 100%;
+	width: 140%;
+	height: 100%;
+	position: absolute;
+	left: -20%;
+	top: 0;
+	filter: blur(40px);
+	transition: background-color 1s;
 }
 </style>

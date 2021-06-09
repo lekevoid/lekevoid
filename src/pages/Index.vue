@@ -35,7 +35,7 @@
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>What I did</h2>
 						<Project id="broadsign">
-							<h3 class="title q-mt-md-none">
+							<h3 class="title q-mt-none">
 								<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
 							</h3>
 							<p>An international digital signage company.</p>
@@ -62,7 +62,7 @@
 							</p>
 						</Project>
 						<Project id="gigi_retzo" invert>
-							<h3 class="title q-mt-md-none">
+							<h3 class="title q-mt-none">
 								<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
 							</h3>
 							<p>The website of a talented artist based in Montreal, Canada.</p>
@@ -89,7 +89,7 @@
 							</p>
 						</Project>
 						<Project id="bokkle" hide-mobile>
-							<h3 class="title q-mt-md-none">
+							<h3 class="title q-mt-none">
 								<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
 							</h3>
 							<p>
@@ -237,22 +237,14 @@ body {
 	transition: background-color 1s;
 }
 
-body.body--dark,
-body.body--light {
-}
-
-body.body--dark {
-	.screenshots {
-	}
-}
-
-body.body--light {
-	.screenshots {
-	}
-}
-
 .q-page {
 	padding-bottom: 100px;
+
+	&.fadeOut {
+		.hero {
+			opacity: 0;
+		}
+	}
 }
 
 .hero {
@@ -349,7 +341,6 @@ body.body--light {
 }
 
 .icon_tech {
-	filter: drop-shadow(-1px -1px 1px rgba(#ddf, 0.5)) drop-shadow(2px 2px 1px rgba(#005, 1));
 	height: 50px;
 	width: 60px;
 	margin: 0 8px;

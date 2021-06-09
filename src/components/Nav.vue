@@ -2,7 +2,7 @@
 	<header class="row">
 		<div class="col-1"></div>
 		<div class="col">
-			<nav :class="['row items-center justify-end q-pt-md q-pb-sm q-pt-md-lg', `line_moves_${navLineDirection}`]" ref="top_nav">
+			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
 				<router-link dark v-for="(page, k) in pages" :to="{ name: page.name }" :key="k" :ref="`link_${page.name.toLowerCase()}`">
 					{{ page.name }}
 				</router-link>
@@ -116,10 +116,6 @@ body.body--dark {
 		.underline {
 			border-color: $linkColor;
 		}
-
-		&:before {
-			background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
-		}
 	}
 }
 
@@ -138,7 +134,7 @@ body.body--light {
 		}
 
 		&:before {
-			background: linear-gradient(to top, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+			filter: invert(1);
 		}
 	}
 }
@@ -161,6 +157,7 @@ nav {
 	padding-bottom: $padding;
 	z-index: 10;
 	width: 100vw;
+	transition: background-color 1s;
 
 	&:before {
 		height: 30px;
@@ -168,9 +165,11 @@ nav {
 		pointer-events: none;
 		position: absolute;
 		width: 100%;
-		top: 0;
+		top: 1px;
 		left: 0;
 		transform: translateY(-100%);
+		transition: filter 1s;
+		background: linear-gradient(to top, rgba(#000, 1) 0%, rgba(#000, 0) 100%);
 	}
 
 	a {
@@ -208,18 +207,15 @@ nav {
 	position: fixed;
 	top: $padding;
 	right: $padding;
-
-	.fadeOut {
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
 }
 
 .theme_icon {
 	height: 30px;
 	width: 30px;
 	cursor: pointer;
+	position: absolute;
+	top: -4px;
+	right: 0;
 }
 
 @media (min-width: $breakpoint-md-min) {
