@@ -42,38 +42,42 @@ body.body--dark {
 }
 
 h1 {
-	font-family: "Montserrat Black";
+	font-family: "Montserrat Black", "Arial Black";
 	font-weight: 900;
 }
 
 h2 {
-	font-family: "Montserrat Bold";
+	font-family: "Montserrat Bold", "Arial";
 }
 
 h3 {
-	font-family: "Source Sans Pro Bold";
+	font-family: "Source Sans Pro Bold", "Arial";
 }
 
 h4 {
-	font-family: "Source Sans Pro Bold";
+	font-family: "Source Sans Pro Bold", "Arial";
 }
 
 h5 {
-	font-family: "Source Sans Pro Bold";
+	font-family: "Source Sans Pro Bold", "Arial";
 }
 
 h6 {
-	font-family: "Source Sans Pro Bold";
+	font-family: "Source Sans Pro Bold", "Arial";
 }
 
 p,
 li {
-	font-family: "Source Sans Pro";
+	font-family: "Source Sans Pro", "Arial";
 
 	em {
 		color: $accent;
 		font-style: normal;
 	}
+}
+
+.q-btn {
+	font-family: "Source Sans Pro", "Tahoma";
 }
 
 a {
