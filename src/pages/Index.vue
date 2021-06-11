@@ -35,61 +35,67 @@
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>What I did</h2>
 						<Project id="broadsign">
-							<h3 class="title q-mt-none">
-								<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
-							</h3>
-							<p>An international digital signage company.</p>
-							<p>
-								<q-btn
-									type="a"
-									color="primary"
-									class="q-mr-lg"
-									icon="preview"
-									:to="{ name: 'SingleProject', params: { project: 'broadsign' } }"
-									target="_blank"
-									label="Details"
-								/>
-								<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
-							</p>
+							<template #short>
+								<h3 class="title q-mt-none">
+									<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
+								</h3>
+								<p>An international digital signage company.</p>
+								<p class="ctas">
+									<q-btn
+										type="a"
+										color="primary"
+										class="q-mr-lg"
+										icon="preview"
+										:to="{ name: 'SingleProject', params: { project: 'broadsign' } }"
+										target="_blank"
+										label="Details"
+									/>
+									<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 						<Project id="gigi_retzo" invert>
-							<h3 class="title q-mt-none">
-								<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
-							</h3>
-							<p>The website of a talented artist based in Montreal, Canada.</p>
-							<p>
-								<q-btn
-									type="a"
-									color="primary"
-									class="q-mr-lg"
-									icon="preview"
-									:to="{ name: 'SingleProject', params: { project: 'gigi_retzo' } }"
-									target="_blank"
-									label="Details"
-								/>
-								<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
-							</p>
+							<template #short>
+								<h3 class="title q-mt-none">
+									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
+								</h3>
+								<p>The website of a talented artist based in Montreal, Canada.</p>
+								<p class="ctas">
+									<q-btn
+										type="a"
+										color="primary"
+										class="q-mr-lg"
+										icon="preview"
+										:to="{ name: 'SingleProject', params: { project: 'gigi_retzo' } }"
+										target="_blank"
+										label="Details"
+									/>
+									<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 						<Project id="bokkle" hide-mobile>
-							<h3 class="title q-mt-none">
-								<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
-							</h3>
-							<p>
-								A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young ones
-								were sleeping.
-							</p>
-							<p>
-								<q-btn
-									type="a"
-									color="primary"
-									class="q-mr-lg"
-									icon="preview"
-									:to="{ name: 'SingleProject', params: { project: 'bokkle' } }"
-									target="_blank"
-									label="Details"
-								/>
-								<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
-							</p>
+							<template #short>
+								<h3 class="title q-mt-none">
+									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
+								</h3>
+								<p>
+									A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young
+									ones were sleeping.
+								</p>
+								<p class="ctas">
+									<q-btn
+										type="a"
+										color="primary"
+										class="q-mr-lg"
+										icon="preview"
+										:to="{ name: 'SingleProject', params: { project: 'bokkle' } }"
+										target="_blank"
+										label="Details"
+									/>
+									<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 					</div>
 				</div>

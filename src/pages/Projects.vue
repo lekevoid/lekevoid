@@ -7,91 +7,104 @@
 					<div class="col column no-wrap justify-center items-start text-left">
 						<h2>Projects</h2>
 						<Project id="broadsign" ref="project_broadsign">
-							<div class="overline" v-scroll-fire="scaleFromRight"></div>
-							<h3 class="title">
-								<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
-							</h3>
-							<p>An international digital signage company.</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>All the things</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_react" class="icon_tech" contain>
-										<q-tooltip>React</q-tooltip>
-									</q-img>
-									<q-img :src="logo_gatsby" class="icon_tech" contain>
-										<q-tooltip>GatsbyJS</q-tooltip>
-									</q-img>
-									<q-img :src="logo_wordpress" class="icon_tech" contain>
-										<q-tooltip>Wordpress</q-tooltip>
-									</q-img>
+							<template #short>
+								<div class="overline" v-scroll-fire="scaleFromRight"></div>
+								<h3 class="title">
+									<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
+								</h3>
+								<p>An international digital signage company.</p>
+							</template>
+							<template #details>
+								<h5 class="q-mb-sm">Features :</h5>
+								<ul>
+									<li>All the things</li>
+								</ul>
+								<div class="techs row items-center q-mb-lg">
+									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<div class="techs_list col-12 col-md-auto">
+										<q-img :src="logo_react" class="icon_tech" contain>
+											<q-tooltip>React</q-tooltip>
+										</q-img>
+										<q-img :src="logo_gatsby" class="icon_tech" contain>
+											<q-tooltip>GatsbyJS</q-tooltip>
+										</q-img>
+										<q-img :src="logo_wordpress" class="icon_tech" contain>
+											<q-tooltip>Wordpress</q-tooltip>
+										</q-img>
+									</div>
 								</div>
-							</div>
-							<p>
-								<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
-							</p>
+								<p>
+									<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 						<Project id="gigi_retzo" invert ref="project_gigi_retzo" name="project_gigi_retzo">
-							<div class="overline" v-scroll-fire="scaleFromLeft"></div>
-							<h3 class="title">
-								<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
-							</h3>
-							<p>The website of a talented artist based in Montreal, Canada.</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>Full e-commerce allowing them to process orders and payments for their work</li>
-								<li>
-									CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their whereabouts
-								</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_wordpress" class="icon_tech" contain>
-										<q-tooltip>Wordpress</q-tooltip>
-									</q-img>
-									<q-img :src="logo_woocommerce" class="icon_tech" contain>
-										<q-tooltip>Woocommerce</q-tooltip>
-									</q-img>
+							<template #short>
+								<div class="overline" v-scroll-fire="scaleFromLeft"></div>
+								<h3 class="title">
+									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
+								</h3>
+								<p>The website of a talented artist based in Montreal, Canada.</p>
+							</template>
+							<template #details>
+								<h5 class="q-mb-sm">Features :</h5>
+								<ul>
+									<li>Full e-commerce allowing them to process orders and payments for their work</li>
+									<li>
+										CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their
+										whereabouts
+									</li>
+								</ul>
+								<div class="techs row items-center q-mb-lg">
+									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<div class="techs_list col-12 col-md-auto">
+										<q-img :src="logo_wordpress" class="icon_tech" contain>
+											<q-tooltip>Wordpress</q-tooltip>
+										</q-img>
+										<q-img :src="logo_woocommerce" class="icon_tech" contain>
+											<q-tooltip>Woocommerce</q-tooltip>
+										</q-img>
+									</div>
 								</div>
-							</div>
-							<p>
-								<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
-							</p>
+								<p>
+									<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 						<Project id="bokkle" hide-mobile ref="project_bokkle">
-							<div class="overline" v-scroll-fire="scaleFromRight"></div>
-							<h3 class="title">
-								<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
-							</h3>
-							<p>
-								A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young ones
-								were sleeping.
-							</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>PWA capability : install as an app on your device and play offline</li>
-								<li>Customizable grid size and timer length</li>
-								<li>Dictionary UI connected to the Merriam-Webster API to validate words</li>
-								<li>Create a game and play remotely with friends !</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_vue" class="icon_tech" contain>
-										<q-tooltip>Vue</q-tooltip>
-									</q-img>
-									<q-img :src="logo_firebase" class="icon_tech wide" contain>
-										<q-tooltip>Firebase</q-tooltip>
-									</q-img>
+							<template #short>
+								<div class="overline" v-scroll-fire="scaleFromRight"></div>
+								<h3 class="title">
+									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
+								</h3>
+								<p>
+									A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young
+									ones were sleeping.
+								</p>
+							</template>
+							<template #details>
+								<h5 class="q-mb-sm">Features :</h5>
+								<ul>
+									<li>PWA capability : install as an app on your device and play offline</li>
+									<li>Customizable grid size and timer length</li>
+									<li>Dictionary UI connected to the Merriam-Webster API to validate words</li>
+									<li>Create a game and play remotely with friends !</li>
+								</ul>
+								<div class="techs row items-center q-mb-lg">
+									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<div class="techs_list col-12 col-md-auto">
+										<q-img :src="logo_vue" class="icon_tech" contain>
+											<q-tooltip>Vue</q-tooltip>
+										</q-img>
+										<q-img :src="logo_firebase" class="icon_tech wide" contain>
+											<q-tooltip>Firebase</q-tooltip>
+										</q-img>
+									</div>
 								</div>
-							</div>
-							<p>
-								<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
-							</p>
+								<p>
+									<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
+								</p>
+							</template>
 						</Project>
 					</div>
 				</div>
@@ -203,6 +216,9 @@ body {
 .q-page {
 	padding-bottom: 100px;
 	padding-top: 100px;
+}
+.project {
+	margin-bottom: 100px;
 }
 
 .overline {

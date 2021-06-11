@@ -30,6 +30,11 @@ export default {
 </script>
 
 <style lang="scss">
+.q-page {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
 .page_content {
 	position: relative;
 	max-width: 1600px;

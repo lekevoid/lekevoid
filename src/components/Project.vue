@@ -5,7 +5,10 @@
 				<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" />
 			</div>
 			<div class="col col-12 col-md-6">
-				<slot />
+				<slot name="short" />
+			</div>
+			<div class="col-12">
+				<slot name="details" />
 			</div>
 		</div>
 	</div>
@@ -73,7 +76,8 @@ export default {
 <style lang="scss" scoped>
 .project {
 	width: 100%;
-	margin-bottom: 120px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 	max-width: 100%;
 
 	&.invert {
@@ -102,6 +106,9 @@ export default {
 		&.wide {
 			width: 5rem;
 		}
+	}
+	.ctas {
+		margin-top: 2rem;
 	}
 }
 </style>
