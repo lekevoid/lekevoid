@@ -1,11 +1,12 @@
 const routes = [
 	{
 		path: "/",
-		name: "LeKevoid",
 		component: () => import("layouts/MainLayout.vue"),
 		children: [
-			{ path: "", name: "Work", component: () => import("pages/Index.vue") },
-			{ path: "/personal", name: "Personal", component: () => import("pages/Personal.vue") },
+			{ path: "", name: "Work", component: () => import("pages/Index.vue"), meta: { slug: "work", showInNav: true, navOrder: 1 } },
+			{ path: "/personal", name: "Personal", component: () => import("pages/Personal.vue"), meta: { slug: "personal", showInNav: true, navOrder: 2 } },
+			{ path: "/projects", name: "Projects", component: () => import("pages/Projects.vue"), meta: { slug: "projects", showInNav: false } },
+			{ path: "/projects/:project", name: "SingleProject", component: () => import("pages/Projects.vue"), meta: { slug: "projects", showInNav: false } },
 		],
 	},
 

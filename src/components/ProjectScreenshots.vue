@@ -68,6 +68,7 @@ body.body--light {
 
 .screenshots {
 	width: 100%;
+	cursor: pointer;
 }
 
 .device {

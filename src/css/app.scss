@@ -14,9 +14,28 @@
 @include embed_font("Source Sans Pro Bold", "SourceSansPro-Bold");
 @include embed_font("Source Sans Pro", "SourceSansPro-Regular");
 
+@keyframes scaleFromLeft {
+	0% {
+		transform: scaleX(0);
+	}
+
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes scaleFromRight {
+	0% {
+		transform: scaleX(0);
+	}
+	100% {
+		transform: scaleX(1);
+	}
+}
+
 html {
 	font-family: "Source Sans Pro";
-	font-size: calc(max(22px, 3vw));
+	font-size: calc(max(20px, 3vw));
 }
 
 @media (min-width:$breakpoint-sm-min) {}

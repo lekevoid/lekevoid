@@ -93,5 +93,15 @@ export default {
 	ul {
 		padding-left: 1em;
 	}
+
+	.icon_tech {
+		height: 2.5rem;
+		width: 3rem;
+		margin: 0 0.4rem;
+
+		&.wide {
+			width: 5rem;
+		}
+	}
 }
 </style>

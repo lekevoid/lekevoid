@@ -39,25 +39,16 @@
 								<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
 							</h3>
 							<p>An international digital signage company.</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>All the things</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_react" class="icon_tech" contain>
-										<q-tooltip>React</q-tooltip>
-									</q-img>
-									<q-img :src="logo_gatsby" class="icon_tech" contain>
-										<q-tooltip>GatsbyJS</q-tooltip>
-									</q-img>
-									<q-img :src="logo_wordpress" class="icon_tech" contain>
-										<q-tooltip>Wordpress</q-tooltip>
-									</q-img>
-								</div>
-							</div>
 							<p>
+								<q-btn
+									type="a"
+									color="primary"
+									class="q-mr-lg"
+									icon="preview"
+									:to="{ name: 'SingleProject', params: { project: 'broadsign' } }"
+									target="_blank"
+									label="Details"
+								/>
 								<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
@@ -66,25 +57,16 @@
 								<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
 							</h3>
 							<p>The website of a talented artist based in Montreal, Canada.</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>Full e-commerce allowing them to process orders and payments for their work</li>
-								<li>
-									CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their whereabouts
-								</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_wordpress" class="icon_tech" contain>
-										<q-tooltip>Wordpress</q-tooltip>
-									</q-img>
-									<q-img :src="logo_woocommerce" class="icon_tech" contain>
-										<q-tooltip>Woocommerce</q-tooltip>
-									</q-img>
-								</div>
-							</div>
 							<p>
+								<q-btn
+									type="a"
+									color="primary"
+									class="q-mr-lg"
+									icon="preview"
+									:to="{ name: 'SingleProject', params: { project: 'gigi_retzo' } }"
+									target="_blank"
+									label="Details"
+								/>
 								<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
 							</p>
 						</Project>
@@ -96,25 +78,16 @@
 								A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young ones
 								were sleeping.
 							</p>
-							<h5 class="q-mb-sm">Features :</h5>
-							<ul>
-								<li>PWA capability : install as an app on your device and play offline</li>
-								<li>Customizable grid size and timer length</li>
-								<li>Dictionary UI connected to the Merriam-Webster API to validate words</li>
-								<li>Create a game and play remotely with friends !</li>
-							</ul>
-							<div class="techs row items-center q-mb-lg">
-								<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
-								<div class="techs_list col-12 col-md-auto">
-									<q-img :src="logo_vue" class="icon_tech" contain>
-										<q-tooltip>Vue</q-tooltip>
-									</q-img>
-									<q-img :src="logo_firebase" class="icon_tech wide" contain>
-										<q-tooltip>Firebase</q-tooltip>
-									</q-img>
-								</div>
-							</div>
 							<p>
+								<q-btn
+									type="a"
+									color="primary"
+									class="q-mr-lg"
+									icon="preview"
+									:to="{ name: 'SingleProject', params: { project: 'bokkle' } }"
+									target="_blank"
+									label="Details"
+								/>
 								<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
 							</p>
 						</Project>
@@ -129,42 +102,10 @@
 <script>
 import Project from "../components/Project.vue";
 
-import logo_agility from "../img/logos/agility.svg";
-import logo_css from "../img/logos/css.svg";
-import logo_firebase_dark from "../img/logos/firebase_dark.svg";
-import logo_firebase_light from "../img/logos/firebase_light.svg";
-import logo_gatsby from "../img/logos/gatsby.svg";
-import logo_html from "../img/logos/html.svg";
-import logo_laravel from "../img/logos/laravel.svg";
-import logo_php from "../img/logos/php.svg";
-import logo_netlify_cms from "../img/logos/netlify_cms.svg";
-import logo_prismic from "../img/logos/prismic.svg";
-import logo_react from "../img/logos/react.svg";
-import logo_sass from "../img/logos/sass.svg";
-import logo_svelte from "../img/logos/svelte.svg";
-import logo_vue from "../img/logos/vue.svg";
-import logo_wordpress from "../img/logos/wordpress.svg";
-import logo_woocommerce from "../img/logos/woocommerce.svg";
-
 export default {
 	name: "PageIndex",
 	components: { Project },
 	data: () => ({
-		logo_html: logo_html,
-		logo_css: logo_css,
-		logo_sass: logo_sass,
-		logo_vue: logo_vue,
-		logo_react: logo_react,
-		logo_svelte: logo_svelte,
-		logo_gatsby: logo_gatsby,
-		logo_php: logo_php,
-		logo_laravel: logo_laravel,
-		logo_agility: logo_agility,
-		logo_netlify_cms: logo_netlify_cms,
-		logo_prismic: logo_prismic,
-		logo_wordpress: logo_wordpress,
-		logo_woocommerce: logo_woocommerce,
-
 		hello: false,
 	}),
 	computed: {
@@ -211,25 +152,6 @@ export default {
 	}
 	100% {
 		transform: rotate(8deg);
-	}
-}
-
-@keyframes scaleFromLeft {
-	0% {
-		transform: scaleX(0);
-	}
-
-	100% {
-		transform: scaleX(1);
-	}
-}
-
-@keyframes scaleFromRight {
-	0% {
-		transform: scaleX(0);
-	}
-	100% {
-		transform: scaleX(1);
 	}
 }
 
@@ -288,9 +210,10 @@ body {
 }
 
 .overline {
-	width: 30%;
 	border-bottom: 3px solid $accent;
 	transform: scaleX(0);
+	width: 50%;
+	max-width: 500px;
 
 	&.from_left {
 		transform-origin: left center;
@@ -305,49 +228,6 @@ body {
 
 .what_i_do {
 	min-height: 100vh;
-}
-
-.q-card {
-	background: radial-gradient(ellipse at bottom, rgba(#ddf, 0.4) 0%, rgba(#fff, 0) 75%);
-	border-radius: 20px;
-	overflow: hidden;
-	text-shadow: 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000, 1px 1px 1px #000;
-
-	.row {
-		z-index: 10;
-		position: relative;
-	}
-
-	&:before {
-		z-index: 1;
-		background-color: rgba(#fff, 0.1);
-		box-shadow: 0 0 30px inset rgba(#fff, 0.2);
-		opacity: 0;
-		backdrop-filter: blur(4px);
-		transition: opacity 0.6s;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		content: "";
-	}
-
-	&:hover {
-		&:before {
-			opacity: 1;
-		}
-	}
-}
-
-.icon_tech {
-	height: 50px;
-	width: 60px;
-	margin: 0 8px;
-
-	&.wide {
-		width: 80px;
-	}
 }
 
 @media (min-width: $breakpoint-md-min) {

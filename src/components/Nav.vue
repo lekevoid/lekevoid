@@ -3,7 +3,7 @@
 		<div class="col-1"></div>
 		<div class="col">
 			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
-				<router-link dark v-for="(page, k) in pages" :to="{ name: page.name }" :key="k" :ref="`link_${page.name.toLowerCase()}`">
+				<router-link dark v-for="(page, k) in pagesToDisplay" :to="{ name: page.name }" :key="k" :ref="`link_${page.slug}`">
 					{{ page.name }}
 				</router-link>
 				<div class="underline" ref="nav_line"></div>
@@ -33,7 +33,7 @@ export default {
 	name: "Nav",
 	props: {
 		currentPage: {
-			type: String,
+			type: Object,
 			required: true,
 		},
 		pages: {
@@ -53,32 +53,35 @@ export default {
 			}
 			return false;
 		},
+		pagesToDisplay() {
+			return this.pages.filter((p) => p.showInNav);
+		},
 	},
 	methods: {
+		removeNavLine() {
+			this.navLineDirection = "hide";
+		},
 		moveNavLine(from, to) {
-			const nav = this.$refs["top_nav"];
-			const pageTo = this.pages.find((p) => p.name.toLowerCase() === to);
-			const linkTo = this.$refs[`link_${pageTo.name.toLowerCase()}`][0].$el;
-			const navLine = this.$refs["nav_line"];
-			const left = linkTo.offsetLeft;
-			const right = nav.clientWidth - (linkTo.offsetLeft + linkTo.clientWidth);
+			const targetLink = this.$refs[`link_${to.slug}`] ? this.$refs[`link_${to.slug}`][0].$el : false;
+			const left = targetLink.offsetLeft;
+			const right = this.$refs["top_nav"].clientWidth - (targetLink.offsetLeft + targetLink.clientWidth);
 
-			if (from) {
-				const pageFrom = this.pages.find((p) => p.name.toLowerCase() === from);
-
-				if (pageTo.order < pageFrom.order) {
+			if (targetLink && to.order) {
+				if (to.order < from.order) {
 					this.navLineDirection = "left";
 				} else {
 					this.navLineDirection = "right";
 				}
+
+				this.$refs["nav_line"].style.left = `${left}px`;
+				this.$refs["nav_line"].style.right = `${right}px`;
+
+				setTimeout(() => {
+					this.navLineDirection = "none";
+				}, 1000);
+			} else {
+				this.removeNavLine();
 			}
-
-			navLine.style.left = `${left}px`;
-			navLine.style.right = `${right}px`;
-
-			setTimeout(() => {
-				this.navLineDirection = "none";
-			}, 1000);
 		},
 		initNavLine() {
 			if (this.currentPage) {
@@ -91,12 +94,19 @@ export default {
 		window.addEventListener("resize", this.initNavLine);
 	},
 	updated() {
-		console.log(this.$q.dark.isActive);
-		this.moveNavLine("", this.currentPage);
+		// this.initNavLine();
 	},
 	watch: {
-		currentPage(to, from) {
-			this.moveNavLine(from, to);
+		currentPage: {
+			deep: true,
+			handler(to, from) {
+				if (to.showInNav === false) {
+					this.removeNavLine();
+				} else if (to !== from) {
+					console.log("update currentPage", from, to);
+					this.moveNavLine(from, to);
+				}
+			},
 		},
 	},
 };
@@ -188,17 +198,25 @@ nav {
 		position: absolute;
 		bottom: #{$padding * 0.7};
 		width: auto;
+		transform: scaleX(1);
 	}
 
 	&.line_moves_left {
 		.underline {
-			transition: left 0.3s ease-out 0s, right 0.3s ease-out 0.2s;
+			transition: transform 0.3s, left 0.3s ease-out 0s, right 0.3s ease-out 0.2s;
 		}
 	}
 
 	&.line_moves_right {
 		.underline {
-			transition: left 0.3s ease-out 0.2s, right 0.3s ease-out 0s;
+			transition: transform 0.3s, left 0.3s ease-out 0.2s, right 0.3s ease-out 0s;
+		}
+	}
+
+	&.line_moves_hide {
+		.underline {
+			transform: scaleX(0);
+			transition: transform 0.3s, left 0.3s ease-out 0s, right 0.3s ease-out 0s;
 		}
 	}
 }

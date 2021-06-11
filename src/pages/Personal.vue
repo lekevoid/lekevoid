@@ -53,9 +53,7 @@ import Backgrounds from "../components/PersonalBackgrounds.vue";
 export default {
 	name: "PagePersonal",
 	components: { Backgrounds },
-	data: () => ({
-		kevin_dark: kevin_dark,
-	}),
+	data: () => ({}),
 	created() {},
 };
 </script>
