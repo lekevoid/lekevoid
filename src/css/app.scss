@@ -28,6 +28,7 @@
 	0% {
 		transform: scaleX(0);
 	}
+
 	100% {
 		transform: scaleX(1);
 	}
@@ -63,31 +64,38 @@ body.body--dark {
 h1 {
 	font-family: "Montserrat Black", "Arial Black";
 	font-weight: 900;
+	transition: color 1s;
 }
 
 h2 {
 	font-family: "Montserrat Bold", "Arial";
+	transition: color 1s;
 }
 
 h3 {
 	font-family: "Source Sans Pro Bold", "Arial";
+	transition: color 1s;
 }
 
 h4 {
 	font-family: "Source Sans Pro Bold", "Arial";
+	transition: color 1s;
 }
 
 h5 {
 	font-family: "Source Sans Pro Bold", "Arial";
+	transition: color 1s;
 }
 
 h6 {
 	font-family: "Source Sans Pro Bold", "Arial";
+	transition: color 1s;
 }
 
 p,
 li {
 	font-family: "Source Sans Pro", "Arial";
+	transition: color 1s;
 
 	em {
 		color: $accent;
