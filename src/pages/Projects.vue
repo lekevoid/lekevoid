@@ -6,7 +6,7 @@
 				<div class="row what_i_did flex-center">
 					<div class="col column no-wrap justify-center items-start text-left">
 						<h2>Projects</h2>
-						<Project id="broadsign" ref="project_broadsign">
+						<!-- <Project id="broadsign" ref="project_broadsign">
 							<template #short>
 								<div class="overline" v-scroll-fire="scaleFromRight"></div>
 								<h3 class="title">
@@ -20,7 +20,7 @@
 									<li>All the things</li>
 								</ul>
 								<div class="techs row items-center q-mb-lg">
-									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<h5 class="text-no-wrap q-my-md q-mr-md">{{ $t("made_with") }} :</h5>
 									<div class="techs_list col-12 col-md-auto">
 										<q-img :src="logo_react" class="icon_tech" contain>
 											<q-tooltip>React</q-tooltip>
@@ -34,29 +34,26 @@
 									</div>
 								</div>
 								<p>
-									<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://broadsign.com" target="_blank" :label=" $t('view_live') " />
 								</p>
 							</template>
-						</Project>
+						</Project> -->
 						<Project id="gigi_retzo" invert ref="project_gigi_retzo" name="project_gigi_retzo">
 							<template #short>
 								<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 								<h3 class="title">
-									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
+									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">{{ $t("projects.gigi_retzo.title") }}</a>
 								</h3>
-								<p>The website of a talented artist based in Montreal, Canada.</p>
+								<p>{{ $t("projects.gigi_retzo.short_desc") }}</p>
 							</template>
 							<template #details>
-								<h5 class="q-mb-sm">Features :</h5>
+								<h5 class="q-mb-sm">{{ $t("features") }} :</h5>
 								<ul>
-									<li>Full e-commerce allowing them to process orders and payments for their work</li>
-									<li>
-										CMS allows them to edit their portfolio, resume and vital information, and keep their visitors informed of their
-										whereabouts
-									</li>
+									<li>{{ $t("projects.gigi_retzo.features.0") }}</li>
+									<li>{{ $t("projects.gigi_retzo.features.1") }}</li>
 								</ul>
 								<div class="techs row items-center q-mb-lg">
-									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<h5 class="text-no-wrap q-my-md q-mr-md">{{ $t("made_with") }} :</h5>
 									<div class="techs_list col-12 col-md-auto">
 										<q-img :src="logo_wordpress" class="icon_tech" contain>
 											<q-tooltip>Wordpress</q-tooltip>
@@ -67,7 +64,7 @@
 									</div>
 								</div>
 								<p>
-									<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://gigiretzo.com" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
 						</Project>
@@ -75,23 +72,20 @@
 							<template #short>
 								<div class="overline" v-scroll-fire="scaleFromRight"></div>
 								<h3 class="title">
-									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
+									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">{{ $t("projects.bokkle.title") }}</a>
 								</h3>
-								<p>
-									A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young
-									ones were sleeping.
-								</p>
+								<p>{{ $t("projects.bokkle.short_desc") }}</p>
 							</template>
 							<template #details>
-								<h5 class="q-mb-sm">Features :</h5>
+								<h5 class="q-mb-sm">{{ $t("features") }} :</h5>
 								<ul>
-									<li>PWA capability : install as an app on your device and play offline</li>
-									<li>Customizable grid size and timer length</li>
-									<li>Dictionary UI connected to the Merriam-Webster API to validate words</li>
-									<li>Create a game and play remotely with friends !</li>
+									<li>{{ $t("projects.bokkle.features.0") }}</li>
+									<li>{{ $t("projects.bokkle.features.1") }}</li>
+									<li>{{ $t("projects.bokkle.features.2") }}</li>
+									<li>{{ $t("projects.bokkle.features.3") }}</li>
 								</ul>
 								<div class="techs row items-center q-mb-lg">
-									<h5 class="text-no-wrap q-my-md q-mr-md">Technologies used :</h5>
+									<h5 class="text-no-wrap q-my-md q-mr-md">{{ $t("made_with") }} :</h5>
 									<div class="techs_list col-12 col-md-auto">
 										<q-img :src="logo_vue" class="icon_tech" contain>
 											<q-tooltip>Vue</q-tooltip>
@@ -102,7 +96,7 @@
 									</div>
 								</div>
 								<p>
-									<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://bokkle.web.app" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
 						</Project>

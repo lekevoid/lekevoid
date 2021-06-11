@@ -4,12 +4,18 @@
 		<div class="col">
 			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
 				<router-link dark v-for="(page, k) in pagesToDisplay" :to="{ name: page.name }" :key="k" :ref="`link_${page.slug}`">
-					{{ page.name }}
+					{{ $t(page.slug) }}
 				</router-link>
 				<div class="underline" ref="nav_line"></div>
 			</nav>
 		</div>
 		<div class="themes col-1 flex justify-end">
+			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
+				<button class="lang_icon en" v-if="$i18n.locale === 'fr'" @click="setLang('en')">EN</button>
+			</transition>
+			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
+				<button class="lang_icon fr" v-if="$i18n.locale === 'en'" @click="setLang('fr')">FR</button>
+			</transition>
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" appear :duration="300">
 				<q-img class="theme_icon dark" v-if="!isDark" :src="icon_mode_dark" @click="$q.dark.set(true)" style="height: 30px; width: 30px">
 					<q-tooltip>Dark Mode</q-tooltip>
@@ -66,6 +72,8 @@ export default {
 			const left = targetLink.offsetLeft;
 			const right = this.$refs["top_nav"].clientWidth - (targetLink.offsetLeft + targetLink.clientWidth);
 
+			console.log(left, right);
+
 			if (targetLink && to.order) {
 				if (to.order < from.order) {
 					this.navLineDirection = "left";
@@ -87,6 +95,12 @@ export default {
 			if (this.currentPage) {
 				this.moveNavLine("", this.currentPage);
 			}
+		},
+		setLang(lang) {
+			this.$i18n.locale = lang;
+			setTimeout(() => {
+				this.moveNavLine(this.currentPage, this.currentPage);
+			}, 100);
 		},
 	},
 	mounted() {
@@ -146,6 +160,10 @@ body.body--light {
 		&:before {
 			filter: invert(1);
 		}
+	}
+
+	.lang_icon {
+		color: #000;
 	}
 }
 
@@ -227,9 +245,32 @@ nav {
 	right: $padding;
 }
 
+.lang_icon {
+	font-family: "Montserrat Black", "Arial Black";
+	cursor: pointer;
+	position: absolute;
+	font-size: 1rem;
+	top: 0;
+	right: 2.2rem;
+	height: 2em;
+	padding-right: 0;
+	padding-left: 0;
+	width: 2em;
+	appearance: none;
+	border: 0 none;
+	background: transparent none;
+	color: #fff;
+	transition: color 0.3s;
+	transform: translateY(-25%);
+
+	&:hover {
+		color: $primary;
+	}
+}
+
 .theme_icon {
-	height: 30px;
-	width: 30px;
+	height: 1.5rem;
+	width: 1.5rem;
 	cursor: pointer;
 	position: absolute;
 	top: -4px;
@@ -245,6 +286,14 @@ nav {
 			padding-right: 0;
 			background: transparent none;
 		}
+	}
+}
+</style>
+
+<style lang="scss" >
+.lang_icon {
+	.q-btn__wrapper {
+		padding: 0;
 	}
 }
 </style>

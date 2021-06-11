@@ -8,21 +8,21 @@
 						<q-img src="../img/kevin.webp" :ratio="1" contain />
 					</div>
 					<h1 class="flex column items-center q-mt-none">
-						<span class="hi">Hi, I'm</span>
+						<span class="hi">{{ $t("hi") }}</span>
 						<span class="kevin">Kevin.</span>
 					</h1>
-					<p v-if="hello">😉 Nice to meet you !</p>
+					<p v-if="hello">{{ $t("nice_to_meet_you") }}</p>
 					<p v-else>
 						<q-btn color="purple" class="q-pl-lg" @click="hello = true">
 							<span class="wave"><span class="inner">👋</span></span>
-							<span>Well hello there !</span>
+							<span>{{ $t("hello_there") }}</span>
 						</q-btn>
 					</p>
 				</div>
 				<div class="row what_i_do flex-center">
 					<div class="col column no-wrap justify-center items-end text-right">
 						<div class="overline" v-scroll-fire="scaleFromRight"></div>
-						<h2>What I do</h2>
+						<h2>{{ $t("what_i_do") }}</h2>
 						<p>I find <em>solutions</em> and <em>develop</em> them.</p>
 						<p>
 							My aim is to connect you with the solution that works for you and your business. This is why I avoid attaching myself to a
@@ -33,8 +33,8 @@
 				<div class="row what_i_did flex-center">
 					<div class="col column no-wrap justify-center items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
-						<h2>What I did</h2>
-						<Project id="broadsign">
+						<h2>{{ $t("what_ive_done") }}</h2>
+						<!-- <Project id="broadsign">
 							<template #short>
 								<h3 class="title q-mt-none">
 									<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
@@ -45,55 +45,52 @@
 										type="a"
 										color="primary"
 										class="q-mr-lg"
-										icon="preview"
+										icon="info"
 										:to="{ name: 'SingleProject', params: { project: 'broadsign' } }"
 										target="_blank"
 										label="Details"
 									/>
-									<q-btn type="a" color="primary" icon="preview" href="https://broadsign.com" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://broadsign.com" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
-						</Project>
+						</Project> -->
 						<Project id="gigi_retzo" invert>
 							<template #short>
 								<h3 class="title q-mt-none">
-									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">Gigi Retzo</a>
+									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">{{ $t("projects.gigi_retzo.title") }}</a>
 								</h3>
-								<p>The website of a talented artist based in Montreal, Canada.</p>
+								<p>{{ $t("projects.gigi_retzo.short_desc") }}</p>
 								<p class="ctas">
 									<q-btn
 										type="a"
 										color="primary"
 										class="q-mr-lg"
-										icon="preview"
+										icon="info"
 										:to="{ name: 'SingleProject', params: { project: 'gigi_retzo' } }"
 										target="_blank"
-										label="Details"
+										:label="$t('details')"
 									/>
-									<q-btn type="a" color="primary" icon="preview" href="https://gigiretzo.com" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://gigiretzo.com" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
 						</Project>
 						<Project id="bokkle" hide-mobile>
 							<template #short>
 								<h3 class="title q-mt-none">
-									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">Bokkle</a>
+									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">{{ $t("projects.bokkle.title") }}</a>
 								</h3>
-								<p>
-									A homemade version of the popular game Boggle. Our family wanted to have a game that we could use at night while the young
-									ones were sleeping.
-								</p>
+								<p>{{ $t("projects.bokkle.short_desc") }}</p>
 								<p class="ctas">
 									<q-btn
 										type="a"
 										color="primary"
 										class="q-mr-lg"
-										icon="preview"
+										icon="info"
 										:to="{ name: 'SingleProject', params: { project: 'bokkle' } }"
 										target="_blank"
 										label="Details"
 									/>
-									<q-btn type="a" color="primary" icon="preview" href="https://bokkle.web.app" target="_blank" label="View live !" />
+									<q-btn type="a" color="primary" icon="open_in_new" href="https://bokkle.web.app" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
 						</Project>
