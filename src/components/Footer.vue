@@ -54,6 +54,7 @@ footer {
 	footer {
 		position: relative;
 		bottom: auto;
+		left: 0;
 		margin-bottom: 2rem;
 	}
 
