@@ -72,8 +72,6 @@ export default {
 			const left = targetLink.offsetLeft;
 			const right = this.$refs["top_nav"].clientWidth - (targetLink.offsetLeft + targetLink.clientWidth);
 
-			console.log(left, right);
-
 			if (targetLink && to.order) {
 				if (to.order < from.order) {
 					this.navLineDirection = "left";

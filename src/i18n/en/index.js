@@ -3,7 +3,7 @@ const personal = require("./content.personal");
 export default {
 	hi: "Hi, I'm",
 	hello_there: "Well hello there !",
-	nice_to_meet_you: "Nice to meet you ! 😉",
+	nice_to_meet_you: "Nice to meet you !",
 	what_i_do: "What I do",
 	what_ive_done: "What I've done",
 	projects: {

@@ -1,5 +1,5 @@
 <template>
-	<q-page class="q-px-lg q-px-md-md">
+	<q-page class="q-px-lg">
 		<div class="page_content row">
 			<div class="col-md-2"></div>
 			<div class="col">
@@ -11,15 +11,72 @@
 						<span class="hi">{{ $t("hi") }}</span>
 						<span class="kevin">Kevin.</span>
 					</h1>
-					<p v-if="hello">{{ $t("nice_to_meet_you") }}</p>
-					<p v-else>
-						<q-btn color="purple" class="q-pl-lg" @click="hello = true">
+					<p>
+						<q-btn color="purple" class="q-pl-lg" @click="console.log('hello')">
 							<span class="wave"><span class="inner">👋</span></span>
 							<span>{{ $t("hello_there") }}</span>
 						</q-btn>
 					</p>
 				</div>
-				<div class="row what_i_do flex-center">
+				<div class="row who_are_you flex-center">
+					<div class="col column no-wrap justify-center items-start text-left">
+						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
+						<h2>{{ $t("nice_to_meet_you") }}</h2>
+						<p>Before we talk about me, may I ask who <i>you</i> are ?</p>
+						<div :class="['row q-mt-lg items-start justify-center no-wrap q-gutter-x-lg', { has_current: user_is }]" style="width: 100%">
+							<q-btn
+								color="primary"
+								size="lg"
+								outline
+								glossy
+								:class="['btn_icon', { current: user_is === 'partner' }]"
+								@click="user_is = 'partner'"
+							>
+								<span class="icon">🤝</span>
+								<span class="label">Potential client/partner</span>
+								<span class="cancel" @click="emptyUser($event)">&times;</span>
+							</q-btn>
+							<q-btn
+								color="primary"
+								size="lg"
+								outline
+								glossy
+								:class="['btn_icon', { current: user_is === 'recruiter' }]"
+								@click="user_is = 'recruiter'"
+							>
+								<span class="icon">🕵️‍♀️</span>
+								<span class="label">HR/Recruiter</span>
+								<span class="cancel" @click="emptyUser($event)">&times;</span>
+							</q-btn>
+							<q-btn color="primary" size="lg" outline glossy :class="['btn_icon', { current: user_is === 'dev' }]" @click="user_is = 'dev'">
+								<span class="icon">🤓</span>
+								<span class="label">A fellow dev</span>
+								<span class="cancel" @click="emptyUser($event)">&times;</span>
+							</q-btn>
+							<q-btn
+								color="primary"
+								size="lg"
+								outline
+								glossy
+								:class="['btn_icon', { current: user_is === 'visitor' }]"
+								@click="user_is = 'visitor'"
+							>
+								<img src="../img/derp.svg" class="icon" />
+								<span class="label">I'm just visiting...</span>
+								<span class="cancel" @click="emptyUser($event)">&times;</span>
+							</q-btn>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
+						<div class="col" v-if="user_is === 'partner'"><h2>A potential partner ?</h2></div>
+						<div class="col" v-if="user_is === 'recruiter'"><h2>A recuiter ?</h2></div>
+						<div class="col" v-if="user_is === 'dev'"><h2>A fellow dev ?</h2></div>
+						<div class="col" v-if="user_is === 'visitor'"><h2>A curious visitor ?</h2></div>
+					</transition>
+				</div>
+				<!-- <div class="row what_i_do flex-center">
 					<div class="col column no-wrap justify-center items-end text-right">
 						<div class="overline" v-scroll-fire="scaleFromRight"></div>
 						<h2>{{ $t("what_i_do") }}</h2>
@@ -29,12 +86,12 @@
 							particular language, framework or tool. What matters is what will help you.
 						</p>
 					</div>
-				</div>
-				<div class="row what_i_did flex-center">
+				</div> -->
+				<!-- <div class="row what_i_did flex-center">
 					<div class="col column no-wrap justify-center items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>{{ $t("what_ive_done") }}</h2>
-						<!-- <Project id="broadsign">
+						<Project id="broadsign">
 							<template #short>
 								<h3 class="title q-mt-none">
 									<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
@@ -53,7 +110,7 @@
 									<q-btn type="a" color="primary" icon="open_in_new" href="https://broadsign.com" target="_blank" :label="$t('view_live')" />
 								</p>
 							</template>
-						</Project> -->
+						</Project>
 						<Project id="gigi_retzo" invert>
 							<template #short>
 								<h3 class="title q-mt-none">
@@ -95,7 +152,7 @@
 							</template>
 						</Project>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="col-md-2"></div>
 		</div>
@@ -103,13 +160,15 @@
 </template>
 
 <script>
-import Project from "../components/Project.vue";
+// import Project from "../components/Project.vue";
 
 export default {
 	name: "PageIndex",
-	components: { Project },
+	components: {
+		/* Project */
+	},
 	data: () => ({
-		hello: false,
+		user_is: false,
 	}),
 	computed: {
 		logo_firebase() {
@@ -139,6 +198,10 @@ export default {
 				el.classList.add("from_right");
 			}
 		},
+		emptyUser(event) {
+			event.preventDefault();
+			this.user_is = false;
+		},
 	},
 	created() {},
 	mounted() {},
@@ -160,6 +223,14 @@ export default {
 
 body {
 	transition: background-color 1s;
+	&.body--dark {
+		.who_are_you {
+			.btn_icon {
+				img {
+				}
+			}
+		}
+	}
 }
 
 .q-page {
@@ -226,6 +297,63 @@ body {
 	&.from_right {
 		transform-origin: right center;
 		animation: scaleFromRight 0.6s ease-out 0s 1 normal forwards running;
+	}
+}
+
+.who_are_you {
+	.btn_icon {
+		max-width: 50%;
+		overflow: hidden;
+		transition: max-width 0.6s ease-out 0s;
+		max-height: 52px;
+
+		.q-btn__content {
+			white-space: nowrap;
+			flex-flow: row nowrap;
+		}
+
+		.icon {
+			margin-right: 0.4em;
+			font-size: 1.4em;
+		}
+
+		img {
+			height: 1em;
+			width: 1em;
+		}
+
+		&:active,
+		&:focus {
+			box-shadow: 0 0 4px #fff;
+		}
+
+		.cancel {
+			color: #f00;
+			font-size: 0em;
+			transition: font-size 0.6s, margin 0.6s;
+			margin: 0;
+			background-color: rgba(#000, 0.01);
+		}
+
+		&.current {
+			pointer-events: none;
+
+			.cancel {
+				pointer-events: all;
+				font-size: 3em;
+				margin-left: 0.4em;
+			}
+		}
+	}
+
+	.has_current {
+		.btn_icon {
+			max-width: 0%;
+
+			&.current {
+				max-width: 100%;
+			}
+		}
 	}
 }
 
