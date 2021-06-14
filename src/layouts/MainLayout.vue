@@ -6,17 +6,17 @@
 				<router-view />
 			</transition>
 		</q-page-container>
-		<Footer />
+		<!-- <Footer /> -->
 	</q-layout>
 </template>
 
 <script>
 import Nav from "../components/Nav.vue";
-import Footer from "../components/Footer.vue";
+// import Footer from "../components/Footer.vue";
 
 export default {
 	name: "MainLayout",
-	components: { Nav, Footer },
+	components: { Nav /* , Footer  */ },
 	data: () => ({}),
 	computed: {
 		pages() {

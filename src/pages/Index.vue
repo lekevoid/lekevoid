@@ -1,7 +1,7 @@
 <template>
 	<q-page class="q-px-lg">
 		<div class="page_content row">
-			<div class="col-md-2"></div>
+			<div class="col-md-1 col-lg-2"></div>
 			<div class="col">
 				<div class="hero flex flex-center column no-wrap">
 					<div class="me q-mb-xl">
@@ -23,7 +23,7 @@
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>{{ $t("nice_to_meet_you") }}</h2>
 						<p>Before we talk about me, may I ask who <i>you</i> are ?</p>
-						<div :class="['row q-mt-lg items-start justify-center no-wrap q-gutter-x-lg', { has_current: user_is }]" style="width: 100%">
+						<div :class="['ctas row q-mt-lg items-start justify-center', { has_current: user_is }]" style="width: 100%">
 							<q-btn
 								color="primary"
 								size="lg"
@@ -48,11 +48,18 @@
 								<span class="label">HR/Recruiter</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
 							</q-btn>
-							<q-btn color="primary" size="lg" outline glossy :class="['btn_icon', { current: user_is === 'dev' }]" @click="user_is = 'dev'">
+							<!-- <q-btn
+								color="primary"
+								size="lg"
+								outline
+								glossy
+								:class="['btn_icon', { current: user_is === 'dev' }]"
+								@click="user_is = 'dev'"
+							>
 								<span class="icon">🤓</span>
 								<span class="label">A fellow dev</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
-							</q-btn>
+							</q-btn> -->
 							<q-btn
 								color="primary"
 								size="lg"
@@ -154,7 +161,7 @@
 					</div>
 				</div> -->
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-1 col-lg-2"></div>
 		</div>
 	</q-page>
 </template>
@@ -301,11 +308,18 @@ body {
 }
 
 .who_are_you {
+	.ctas {
+		position: relative;
+	}
+
 	.btn_icon {
-		max-width: 50%;
-		overflow: hidden;
-		transition: max-width 0.6s ease-out 0s;
+		$transitionDuration: 0.4s;
+		transition: opacity $transitionDuration ease-out 0s, max-width $transitionDuration ease-out 0s, max-height $transitionDuration ease-out 0s;
 		max-height: 52px;
+		width: 100%;
+		flex: 0 0 100%;
+		overflow: hidden;
+		margin: 0 0 0.6em;
 
 		.q-btn__content {
 			white-space: nowrap;
@@ -315,6 +329,10 @@ body {
 		.icon {
 			margin-right: 0.4em;
 			font-size: 1.4em;
+		}
+
+		.label {
+			font-size: calc(clamp(14px, 2.8vw, 20px));
 		}
 
 		img {
@@ -330,7 +348,7 @@ body {
 		.cancel {
 			color: #f00;
 			font-size: 0em;
-			transition: font-size 0.6s, margin 0.6s;
+			transition: font-size $transitionDuration, margin $transitionDuration;
 			margin: 0;
 			background-color: rgba(#000, 0.01);
 		}
@@ -348,9 +366,12 @@ body {
 
 	.has_current {
 		.btn_icon {
-			max-width: 0%;
+			max-height: 0px;
+			opacity: 0;
 
 			&.current {
+				max-height: 52px;
+				opacity: 1;
 				max-width: 100%;
 			}
 		}
@@ -359,6 +380,70 @@ body {
 
 .what_i_do {
 	min-height: 100vh;
+}
+
+@media (min-width: $breakpoint-sm-min) {
+	.who_are_you {
+		.ctas {
+			flex-flow: row nowrap;
+		}
+
+		.btn_icon {
+			flex: 0 0 auto;
+			width: auto;
+			height: auto;
+			max-height: none;
+			margin: 0 0.4em;
+			max-width: 50%;
+
+			.label {
+				font-size: calc(clamp(14px, 2.2vw, 20px));
+			}
+		}
+
+		.has_current {
+			.btn_icon {
+				max-width: 0%;
+				opacity: 0;
+				height: auto;
+				max-height: none;
+
+				&.current {
+					height: auto;
+					max-height: none;
+					max-width: 50%;
+					opacity: 1;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		/* .btn_icon {
+			position: absolute;
+			overflow: hidden;
+			transition: opacity 0.3s ease-out 0s, max-width 0s ease-out 0.3s;
+			max-height: 52px;
+			transition-delay: 0.3s;
+			left: 50%;
+			top: 50%;
+
+			&:nth-of-type(1) {
+				transform: translate(-82%, -52%);
+			}
+
+			&:nth-of-type(2) {
+				transform: translate(29%, -52%);
+			}
+
+			&:nth-of-type(3) {
+				transform: translate(-109%, 52%);
+			}
+
+			&:nth-of-type(4) {
+				transform: translate(-7%, 52%);
+			}
+		} */
+	}
 }
 
 @media (min-width: $breakpoint-md-min) {
