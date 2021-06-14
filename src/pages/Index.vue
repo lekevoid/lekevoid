@@ -100,11 +100,15 @@
 				<div class="row contact">
 					<div class="col">
 						<h2>I'd love to hear from you !</h2>
-						<q-form netlify class="q-my-xl">
-							<q-input v-model="form.name" name="name" hint="What should I call you ?" outlined class="q-mb-md" />
-							<q-input v-model="form.email" name="email" hint="Where can I reach you ?" type="email" outlined class="q-mb-md" />
-							<q-input v-model="form.message" name="message" hint="What can I do for you ?" type="textarea" outlined class="q-mb-md" />
-						</q-form>
+						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
+							<p v-if="formSubmitted">Thank you for reaching out !</p>
+							<q-form netlify class="q-my-xl" v-if="!formSubmitted">
+								<q-input v-model="form.name" name="name" hint="What should I call you ?" outlined class="q-mb-md" />
+								<q-input v-model="form.email" name="email" hint="Where can I reach you ?" type="email" outlined class="q-mb-md" />
+								<q-input v-model="form.message" name="message" hint="What can I do for you ?" type="textarea" outlined class="q-mb-md" />
+								<q-btn type="submit" icon="send" label="Submit" glossy @click="formSubmitted = true" />
+							</q-form>
+						</transition>
 					</div>
 				</div>
 				<!-- <div class="row what_i_do flex-center">
@@ -201,6 +205,7 @@ export default {
 	data: () => ({
 		user_is: false,
 		form: { name: "", email: "", message: "" },
+		formSubmitted: false,
 	}),
 	computed: {
 		logo_firebase() {
@@ -430,6 +435,17 @@ body {
 
 .contact {
 	margin-top: 10rem;
+
+	.q-form {
+		transition: max-height 0.6s, margin 0.6s;
+		overflow: hidden;
+		max-height: 100vh;
+
+		&.fadeOut {
+			max-height: 0vh;
+			margin: 0;
+		}
+	}
 }
 
 @media (min-width: $breakpoint-sm-min) {
