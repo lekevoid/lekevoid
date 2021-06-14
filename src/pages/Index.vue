@@ -4,9 +4,13 @@
 			<div class="col-md-1 col-lg-2"></div>
 			<div class="col">
 				<div class="hero flex flex-center column no-wrap">
-					<div class="me q-mb-xl">
-						<q-img src="../img/kevin.webp" :ratio="1" contain />
-					</div>
+					<transition appear enter-active-class="animated fadeIn" :duration="1000">
+						<div class="me q-mb-xl">
+							<q-avatar>
+								<q-img src="../img/kevin.webp" contain />
+							</q-avatar>
+						</div>
+					</transition>
 					<h1 class="flex column items-center q-mt-none">
 						<span class="hi">{{ $t("hi") }}</span>
 						<span class="kevin">Kevin.</span>
@@ -18,8 +22,8 @@
 						</q-btn>
 					</p>
 				</div>
-				<div class="row who_are_you flex-center">
-					<div class="col column no-wrap justify-center items-start text-left">
+				<div class="col who_are_you align-start">
+					<div class="col col-12 column no-wrap justify-start items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>{{ $t("nice_to_meet_you") }}</h2>
 						<p>Before we talk about me, may I ask who <i>you</i> are ?</p>
@@ -74,14 +78,34 @@
 							</q-btn>
 						</div>
 					</div>
+					<div class="col col-12">
+						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
+							<div class="col" v-if="user_is === 'partner'">
+								<h2>A potential partner ?</h2>
+								<p>That. Is. So. Awesome !</p>
+								<p>
+									My business ipseity is still under construction, but it is evolving fast ! Come back soon to discover why you would be
+									delighted to work with me and what your business stands to gain from our partnership.
+								</p>
+								<p>
+									In the meantime, feel free to reach out to me via the form below. I will definitely get back to you if I think I can help !
+								</p>
+							</div>
+							<div class="col" v-if="user_is === 'recruiter'"><h2>A recuiter ?</h2></div>
+							<div class="col" v-if="user_is === 'dev'"><h2>A fellow dev ?</h2></div>
+							<div class="col" v-if="user_is === 'visitor'"><h2>A curious visitor ?</h2></div>
+						</transition>
+					</div>
 				</div>
-				<div class="row">
-					<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
-						<div class="col" v-if="user_is === 'partner'"><h2>A potential partner ?</h2></div>
-						<div class="col" v-if="user_is === 'recruiter'"><h2>A recuiter ?</h2></div>
-						<div class="col" v-if="user_is === 'dev'"><h2>A fellow dev ?</h2></div>
-						<div class="col" v-if="user_is === 'visitor'"><h2>A curious visitor ?</h2></div>
-					</transition>
+				<div class="row contact">
+					<div class="col">
+						<h2>I'd love to hear from you !</h2>
+						<q-form netlify class="q-my-xl">
+							<q-input v-model="form.name" name="name" hint="What should I call you ?" outlined class="q-mb-md" />
+							<q-input v-model="form.email" name="email" hint="Where can I reach you ?" type="email" outlined class="q-mb-md" />
+							<q-input v-model="form.message" name="message" hint="What can I do for you ?" type="textarea" outlined class="q-mb-md" />
+						</q-form>
+					</div>
 				</div>
 				<!-- <div class="row what_i_do flex-center">
 					<div class="col column no-wrap justify-center items-end text-right">
@@ -176,6 +200,7 @@ export default {
 	},
 	data: () => ({
 		user_is: false,
+		form: { name: "", email: "", message: "" },
 	}),
 	computed: {
 		logo_firebase() {
@@ -230,8 +255,11 @@ export default {
 
 body {
 	transition: background-color 1s;
+
 	&.body--dark {
 		.who_are_you {
+			min-height: 100vh;
+
 			.btn_icon {
 				img {
 				}
@@ -255,14 +283,29 @@ body {
 	margin-bottom: 20vh;
 
 	.me {
+		$photoSize: 50vmin;
+		$photoMaxSize: 400px;
 		border: 2px ridge #fff;
-		max-height: 400px;
-		max-width: 400px;
-		height: 50vmin;
-		flex: 0 0 50vmin;
-		width: 50vmin;
-		border-radius: 400px;
+		max-height: $photoMaxSize;
+		max-width: $photoMaxSize;
+		border-radius: $photoMaxSize;
 		overflow: hidden;
+		flex: 0 0 $photoSize;
+		width: $photoSize;
+		height: $photoSize;
+
+		.q-avatar,
+		.q-avatar__content,
+		.q-img {
+			max-height: $photoMaxSize;
+			max-width: $photoMaxSize;
+			width: $photoSize;
+			height: $photoSize;
+			padding: 0;
+			margin: 0;
+			left: 0;
+			top: 0;
+		}
 	}
 
 	.hi {
@@ -310,6 +353,9 @@ body {
 .who_are_you {
 	.ctas {
 		position: relative;
+	}
+	& > .col {
+		margin: 0;
 	}
 
 	.btn_icon {
@@ -380,6 +426,10 @@ body {
 
 .what_i_do {
 	min-height: 100vh;
+}
+
+.contact {
+	margin-top: 10rem;
 }
 
 @media (min-width: $breakpoint-sm-min) {
