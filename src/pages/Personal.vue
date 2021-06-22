@@ -207,7 +207,7 @@ body.body--dark {
 	transform-origin: center bottom;
 	cursor: pointer;
 	box-shadow: 4px 4px 10px #000;
-	border-radius: 14px;
+	border-radius: 6px;
 	transform: translate(-50%, -20%) rotate(0deg);
 	z-index: 0;
 	user-select: none;
@@ -244,6 +244,14 @@ body.body--dark {
 
 	.subtitle {
 		margin-top: 0;
+	}
+}
+
+@media (min-width: $breakpoint-sm-min) {
+}
+@media (min-width: $breakpoint-md-min) {
+	.card {
+		border-radius: 14px;
 	}
 }
 </style>
