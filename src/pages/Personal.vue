@@ -46,9 +46,9 @@
 <script>
 import Backgrounds from "../components/PersonalBackgrounds.vue";
 
-import card_horror from "../img/card_horror.jpg";
-import card_soldier from "../img/card_soldier.jpg";
-import card_wizard from "../img/card_wizard.jpg";
+import card_horror from "../img/card_horror.webp";
+import card_soldier from "../img/card_soldier.webp";
+import card_wizard from "../img/card_wizard.webp";
 
 export default {
 	name: "PagePersonal",
