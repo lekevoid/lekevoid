@@ -102,12 +102,12 @@
 						<h2>I'd love to hear from you !</h2>
 						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
 							<p v-if="formSubmitted">Thank you for reaching out !</p>
-							<q-form netlify class="q-my-xl" v-if="!formSubmitted">
+							<form class="q-my-xl" v-if="!formSubmitted" method="post" @submit="onSubmit" netlify>
 								<q-input v-model="form.name" name="name" hint="What should I call you ?" outlined class="q-mb-md" />
 								<q-input v-model="form.email" name="email" hint="Where can I reach you ?" type="email" outlined class="q-mb-md" />
 								<q-input v-model="form.message" name="message" hint="What can I do for you ?" type="textarea" outlined class="q-mb-md" />
 								<q-btn type="submit" icon="send" label="Submit" glossy @click="formSubmitted = true" />
-							</q-form>
+							</form>
 						</transition>
 					</div>
 				</div>
@@ -238,6 +238,9 @@ export default {
 		emptyUser(event) {
 			event.preventDefault();
 			this.user_is = false;
+		},
+		onSubmit(evt) {
+			evt.target.submit();
 		},
 	},
 	created() {},
