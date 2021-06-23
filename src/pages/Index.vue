@@ -98,7 +98,7 @@
 					</div>
 				</div>
 				<div class="row contact">
-					<div class="col">
+					<!-- <div class="col">
 						<h2>I'd love to hear from you !</h2>
 						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
 							<p v-if="formSubmitted">Thank you for reaching out !</p>
@@ -109,7 +109,7 @@
 								<q-btn type="submit" icon="send" label="Submit" glossy @click="formSubmitted = true" />
 							</form>
 						</transition>
-					</div>
+					</div> -->
 				</div>
 				<!-- <div class="row what_i_do flex-center">
 					<div class="col column no-wrap justify-center items-end text-right">
