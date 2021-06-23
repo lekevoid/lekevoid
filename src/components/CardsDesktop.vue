@@ -158,7 +158,7 @@ export default {
 	width: 100%;
 	opacity: 0;
 	right: calc(min(10vw, 1000px));
-	transition: opacity 0.3s ease-out 0.3s;
+	transition: opacity 0.6s ease-out 0.6s;
 
 	&.loaded {
 		opacity: 1;
