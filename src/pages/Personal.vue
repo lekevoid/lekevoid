@@ -98,6 +98,10 @@ h1 {
 	}
 }
 
+@media (orientation:portrait) {
+	h1{margin-bottom:60px;}
+}
+
 @media (min-width: $breakpoint-sm-min) {
 }
 

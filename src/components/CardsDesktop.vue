@@ -223,6 +223,10 @@ export default {
 	}
 }
 
+@media (orientation:portrait) {
+	.cards{height:30vh;margin-bottom:calc(min(40px, 4vw));}
+}
+
 @media (min-width: $breakpoint-sm-min) {
 	.card {
 		border-radius: calc(min(14px, 0.8vw));
