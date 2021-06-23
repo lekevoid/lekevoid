@@ -1,5 +1,5 @@
 export default {
-	who_am_i: "So who am I ?",
+	who_am_i: "A little bit about me",
 	text: {
 		horror: `<h2 class="subtitle">Horror... for some reason</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris diam. Nam bibendum finibus ante, bibendum dignissim lectus. In ut dictum arcu. Nam ac euismod augue, et aliquam libero. Quisque cursus arcu in tellus tempus, id aliquam velit elementum. Donec a dictum nunc. Curabitur dictum suscipit mauris, vitae tempor ante volutpat a. Aenean aliquet hendrerit dolor, vel laoreet felis maximus dapibus.</p>`,
