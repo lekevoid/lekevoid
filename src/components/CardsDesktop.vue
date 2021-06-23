@@ -8,6 +8,12 @@
 				@click="makeTopCard('horror')"
 			/>
 			<img
+				:src="card_quantum.src"
+				:class="['card quantum', `order_${card_quantum.order}`, { current: card_quantum.order === cardsQty }]"
+				ref="card_quantum"
+				@click="makeTopCard('quantum')"
+			/>
+			<img
 				:src="card_soldier.src"
 				:class="['card soldier', `order_${card_soldier.order}`, { current: card_soldier.order === cardsQty }]"
 				ref="card_soldier"
@@ -42,6 +48,12 @@ export default {
 		card_horror() {
 			if (this.cards.length) {
 				return this.cards.find((c) => c.name === "horror");
+			}
+			return {};
+		},
+		card_quantum() {
+			if (this.cards.length) {
+				return this.cards.find((c) => c.name === "quantum");
 			}
 			return {};
 		},
@@ -153,6 +165,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes wobble {
+	0% {
+		bottom: -18%;
+	}
+	100% {
+		bottom: -22%;
+	}
+}
+
 .cards {
 	position: relative;
 	height: 60vh;
@@ -171,6 +192,7 @@ export default {
 			&.current {
 				pointer-events: none;
 				transition-delay: 0s;
+				animation: 2s ease-in-out 0s infinite alternate wobble;
 			}
 		}
 	}
