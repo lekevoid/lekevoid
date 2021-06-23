@@ -107,7 +107,9 @@ export default {
 
 			this.$nextTick(() => {
 				this.animTopCard("wizard", true);
-				this.cardsLoaded = true;
+				setTimeout(() => {
+					this.cardsLoaded = true;
+				}, 300);
 			});
 		},
 		makeTopCard(targetCardName) {
@@ -158,7 +160,7 @@ export default {
 	width: 100%;
 	opacity: 0;
 	right: calc(min(10vw, 1000px));
-	transition: opacity 0.6s ease-out 0.6s;
+	transition: opacity 0.3s ease-out 0s;
 
 	&.loaded {
 		opacity: 1;
