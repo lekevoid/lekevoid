@@ -113,7 +113,17 @@ h1 {
 	.subtitle {
 		margin-top: 0;
 	}
-	em{color:$primary;font-style:normal;}
+	em{font-style:normal;transition:color 0.6s;}
 	i{color:inherit;}
+}
+body.body--dark {
+	.card_description {
+	em{color:lighten($primary, 20);}
+}
+}
+body.body--light {
+	.card_description {
+	em{color:darken($secondary, 20);}
+}
 }
 </style>
