@@ -92,10 +92,6 @@ h1 {
 		opacity: 1;
 		height: auto;
 	}
-
-	.subtitle {
-		margin-top: 0;
-	}
 }
 
 @media (orientation:portrait) {
@@ -117,5 +113,7 @@ h1 {
 	.subtitle {
 		margin-top: 0;
 	}
+	em{color:$primary;font-style:normal;}
+	i{color:inherit;}
 }
 </style>
