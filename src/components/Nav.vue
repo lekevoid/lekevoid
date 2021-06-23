@@ -281,9 +281,14 @@ nav {
 		nav {
 			position: relative;
 			width: 100%;
-			padding-right: 0;
+			padding-right: 5%;
 			background: transparent none;
 		}
+	}
+}
+@media (min-width: $breakpoint-lg-min) {
+	nav {
+		padding-right: 0%;
 	}
 }
 </style>

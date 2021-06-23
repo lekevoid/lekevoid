@@ -21,7 +21,7 @@ import bg_mountains_dark from "../img/bg_mountains_dark.svg";
 import bg_mountains_light from "../img/bg_mountains_light.svg";
 
 export default {
-	name: "WorkBackgrounds",
+	name: "PersonalBackgrounds",
 	props: {},
 	data: () => ({
 		bg_mountains_dark: bg_mountains_dark,
