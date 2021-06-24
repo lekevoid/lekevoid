@@ -1,5 +1,5 @@
 export default {
-	who_am_i: "A little bit about me",
+	who_am_i: "À propos de moi...",
 	text: {
 		horror: `<h3 class="subtitle">L'horreur me fascine</h3>
 					<p>Horror, like mythology, serves humans in several ways: it helps cope with what is not known or understood; it enables the exploration of things that are considered forbidden, taboo or "bad"... and most of all, at least for me, it shows what we all stand to lose, when we accept delusions as truths, and when we lose sight of our humanity or refuse to see the monsters that are within each of us.</p>
