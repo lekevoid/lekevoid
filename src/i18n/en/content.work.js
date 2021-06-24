@@ -8,6 +8,8 @@ export default {
 							<p>
 								In the meantime, feel free to reach out to me via the form below. I will definitely get back to you if I think I can help !
 							</p>`,
-	recruiter_description: `<h2>A recuiter ?</h2>`,
-	visitor_description: `<h2>A curious visitor ?</h2>`,
+	recruiter_description: `<h2>A recuiter ?</h2>
+							<p></p>`,
+	visitor_description: `<h2>A curious visitor ?</h2>
+							<p></p>`,
 };
