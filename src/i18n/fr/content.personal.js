@@ -1,9 +1,37 @@
 export default {
-	who_am_i: "Donc, qui suis-je ?",
-	text: `<p>Restez à l'écoute pour le savoir...</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at risus purus. Ut in lacinia ipsum. Cras neque neque, mollis nec tellus pulvinar, malesuada rhoncus velit. Aliquam condimentum, ipsum eget tristique placerat, turpis quam vulputate leo, in placerat odio erat ac augue. Praesent quis lacus turpis. Quisque venenatis sit amet lacus id pulvinar. Suspendisse bibendum posuere augue porttitor commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam convallis tempus magna nec mattis. Pellentesque auctor turpis sapien, et tempus lacus accumsan vel. Donec ut eros eu eros dignissim fermentum et eget leo. Donec ac tristique mi.</p>
-			<p>In sit amet libero in arcu tempor finibus. Vivamus fringilla lectus in velit luctus interdum. Quisque in sem diam. In vehicula sapien eget neque tincidunt ornare. Vivamus finibus velit quis arcu molestie, sed vestibulum arcu fermentum. Nullam molestie venenatis neque, a gravida magna vulputate in. Duis ut venenatis odio, sed mollis urna. Donec bibendum ac augue non blandit. In imperdiet egestas purus, eget mattis turpis varius id. Cras faucibus posuere tellus ut laoreet. Nam a elementum augue. Proin nunc velit, efficitur quis dolor at, ornare imperdiet risus. Etiam vestibulum fringilla malesuada. Aenean egestas ut neque sit amet pellentesque. Sed eu varius libero, vel aliquam nibh.</>
-			<p>Mauris lectus erat, pulvinar non elit et, molestie imperdiet tellus. In laoreet massa eu viverra ullamcorper. Praesent a orci eu nulla accumsan eleifend. Integer blandit, ex quis efficitur feugiat, lorem odio accumsan quam, vel commodo ipsum orci sed turpis. Mauris vel massa bibendum sem euismod finibus. Donec venenatis nibh sit amet ipsum vulputate, vitae mattis est interdum. Phasellus orci risus, sagittis sit amet orci vel, varius bibendum eros.</p>
-			<p>In hac habitasse platea dictumst. Nam dignissim nec felis ut vulputate. Aenean pretium purus in est suscipit, vel malesuada purus tempor. Mauris at libero felis. Aenean ut augue diam. Donec eu bibendum tellus. Etiam bibendum, metus nec molestie placerat, felis lacus tincidunt mauris, nec sodales eros lorem nec nulla. Aenean maximus est ex. Fusce non metus suscipit, facilisis orci at, facilisis nunc. Phasellus mauris urna, vulputate quis vehicula vel, eleifend ut mi. Maecenas rhoncus vitae lectus nec sagittis. Ut id felis non purus fringilla scelerisque. In bibendum nulla scelerisque, tempus lorem quis, fringilla augue.</>
-			<p>Nulla tempor ex vel facilisis lobortis. Nunc vulputate malesuada vehicula. Proin eu ornare ligula, eu ullamcorper augue. Phasellus viverra pretium erat. Proin tempor turpis ac felis facilisis posuere. Phasellus consequat, purus id rutrum dignissim, augue mauris finibus eros, at vestibulum tellus ipsum eu felis. Aenean ac nisi maximus ex lacinia aliquet. Integer non posuere nisl. Curabitur arcu velit, venenatis a lorem nec, tincidunt sodales velit. Suspendisse sodales enim lacus, sed rhoncus odio pharetra eget. Pellentesque eu dapibus nibh. Pellentesque fermentum varius faucibus.</p>`,
+	who_am_i: "A little bit about me",
+	text: {
+		horror: `<h3 class="subtitle">L'horreur me fascine</h3>
+					<p>Horror, like mythology, serves humans in several ways: it helps cope with what is not known or understood; it enables the exploration of things that are considered forbidden, taboo or "bad"... and most of all, at least for me, it shows what we all stand to lose, when we accept delusions as truths, and when we lose sight of our humanity or refuse to see the monsters that are within each of us.</p>
+					<p><b>Things the eldritch horrors have whispered to my ear</b>:</p>
+					<ul>
+						<li>Life has no meaning or value intrinsically, it falls to me to give it both.</li>
+						<li>The universe doesn't care about my mistakes or successes.</li>
+						<li>Entropy claims us all.</li>
+					</ul>`,
+		quantum: `<h3 class="subtitle">Je suis un geek pour le quantique</h3>
+					<p>Few things excite my imagination like the quantum world. A world where <em>common sense</em> breaks down. Where our daily experience informs <i>zilch</i> about what is truly going on. Where <em>objectivity</em> seems to meet <em>consciousness</em>. Where beautiful <em>stories</em> are born, at the crossroads of magic and poetry.</p>
+					<p><b>What's I've seen by peeking at the Planck scale</b>:</p>
+					<ul>
+						<li>Le monde est <em style="font-variant:small-caps;">b̸̧͖̀̅̌̾͠i̵͕͇͎̱͌͑̌͝z̵̥̩̞͚̓à̷̠̜̗̬́ͅr̴͙̠̃̇̒r̴̡̥̥̖̋̄e̵̡̨̛̩͖̗̎̇</em>.</li>
+						<li>It's a running gag with my partner, that we could have existed in any of the "<i>alternate realities</i>" where we never met, or where split apart. Yet here we are. Let's make <i>this</i> reality what we want it to be.</li>
+						<li>Entropy claims us all.</li>
+					</ul>`,
+		soldier: `<h3 class="subtitle">J'aime les épées</h3>
+					<p>Swords have been part of my life for as long as I can remember, from the kid watching Power Rangers and playing Zelda, to the adult taking classes in <em>HEMA</em> and <em>kali</em>.</p>
+					<p><b>Lessons I gleamed from the blade</b>:</p>
+					<ul>
+						<li>Improvement comes with consistency and in tiny increments.</li>
+						<li>Purpose is the difference between growing and thrashing around.</li>
+					</ul>`,
+		wizard: `<h3 class="subtitle">Je suis un magicien!</h3>
+					<p>A wise man named Daniel Parisien, who was my mentor for a short while, once said that <em>programming is the closest we'll ever get to magic</em>. <i>(He's probably not the first to say it but I'm crediting him anyways)</i></p>
+					<p>I've studied the actual occult arts and found this to ring true. I find a <em>resonance</em> with code that can almost be qualified mystical: the <em>sanctum</em>-like quality of my working space. The books by Robert Martin and cheatsheets akin to as many <em>grimoires</em> and <em>scrolls</em> from which to unearth some hidden lore. And most of all, the duality of <em>esotericism</em> and <em>clarity</em> of well-written code.</p>
+					<p><b>How the <i>magic</i> of programming has affected my outlook on life</b>:</p>
+					<ul>
+						<li>The laws of programming are limiting to the apprentice, freeing to the adept. One meaningful aim is to understand when to respect the rules of the system, when to circumvent them, and when to surpass them.</li>
+						<li>Every problem has a solution. Find tools that you can use and get to it.</li>
+						<li>A poor worker blames their tool, it's true. Yet bad tools <i>can</i> destroy the best worker.</li>
+					</ul>`,
+	},
 };

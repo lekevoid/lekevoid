@@ -1,11 +1,13 @@
 const personal = require("./content.personal");
+const work = require("./content.work");
 
 export default {
 	hi: "Salut, moi c'est",
 	hello_there: "Dites bonjour !",
-	nice_to_meet_you: "Ravi de vous rencontrer ! 😉",
+	nice_to_meet_you: "Ravi de vous rencontrer !",
 	what_i_do: "Ce que je fais",
 	what_ive_done: "Ce que j'ai fait",
+	before_we_talk_about_me: "Avant de parler de moi, puis-je demander qui <i>vous</i> êtes ?",
 	projects: {
 		gigi_retzo: {
 			title: "Gigi Retzo",
@@ -30,7 +32,15 @@ export default {
 	made_with: "Fait avec",
 	details: "Détails",
 	view_live: "Voir en action",
-	content_personal: { ...personal.default },
+	content_personal: {
+		...personal.default,
+	},
+	content_work: {
+		...work.default,
+	},
 	work: "Travail",
 	personal: "Personnel",
+	cta_client: "Potentiel Client/Partenaire",
+	cta_recruiter: "RH/Recruteur",
+	cta_visitor: "Je ne fais que passer...",
 };

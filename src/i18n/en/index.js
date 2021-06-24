@@ -1,4 +1,5 @@
 const personal = require("./content.personal");
+const work = require("./content.work");
 
 export default {
 	hi: "Hi, I'm",
@@ -6,6 +7,7 @@ export default {
 	nice_to_meet_you: "Nice to meet you !",
 	what_i_do: "What I do",
 	what_ive_done: "What I've done",
+	before_we_talk_about_me: "Before we talk about me, may I ask who <i>you</i> are ?",
 	projects: {
 		gigi_retzo: {
 			title: "Gigi Retzo",
@@ -31,7 +33,15 @@ export default {
 	made_with: "Made using",
 	details: "Details",
 	view_live: "View Live",
-	content_personal: { ...personal.default },
+	content_personal: {
+		...personal.default,
+	},
+	content_work: {
+		...work.default,
+	},
 	work: "Work",
 	personal: "Personal",
+	cta_client: "Potential client/partner",
+	cta_recruiter: "HR/Recruiter",
+	cta_visitor: "I'm just visiting...",
 };

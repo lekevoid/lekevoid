@@ -26,7 +26,7 @@
 					<div class="col col-12 column no-wrap justify-start items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>{{ $t("nice_to_meet_you") }}</h2>
-						<p>Before we talk about me, may I ask who <i>you</i> are ?</p>
+						<p v-html="$t('before_we_talk_about_me')"></p>
 						<div :class="['ctas row q-mt-lg items-start justify-center', { has_current: user_is }]" style="width: 100%">
 							<q-btn
 								color="primary"
@@ -37,7 +37,7 @@
 								@click="user_is = 'partner'"
 							>
 								<span class="icon">🤝</span>
-								<span class="label">Potential client/partner</span>
+								<span class="label">{{ $t("cta_client") }}</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
 							</q-btn>
 							<q-btn
@@ -49,7 +49,7 @@
 								@click="user_is = 'recruiter'"
 							>
 								<span class="icon">🕵️‍♀️</span>
-								<span class="label">HR/Recruiter</span>
+								<span class="label">{{ $t("cta_recruiter") }}</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
 							</q-btn>
 							<!-- <q-btn
@@ -73,27 +73,16 @@
 								@click="user_is = 'visitor'"
 							>
 								<img src="../img/derp.svg" class="icon" />
-								<span class="label">I'm just visiting...</span>
+								<span class="label">{{ $t("cta_visitor") }}</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
 							</q-btn>
 						</div>
 					</div>
 					<div class="col col-12">
 						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
-							<div class="col" v-if="user_is === 'partner'">
-								<h2>A potential partner ?</h2>
-								<p>That. Is. So. Awesome !</p>
-								<p>
-									My business ipseity is still under construction, but it is evolving fast ! Come back soon to discover why you would be
-									delighted to work with me and what your business stands to gain from our partnership.
-								</p>
-								<p>
-									In the meantime, feel free to reach out to me via the form below. I will definitely get back to you if I think I can help !
-								</p>
-							</div>
-							<div class="col" v-if="user_is === 'recruiter'"><h2>A recuiter ?</h2></div>
-							<div class="col" v-if="user_is === 'dev'"><h2>A fellow dev ?</h2></div>
-							<div class="col" v-if="user_is === 'visitor'"><h2>A curious visitor ?</h2></div>
+							<div class="col" v-if="user_is === 'partner'" v-html="$t('content_work.client_description')"></div>
+							<div class="col" v-if="user_is === 'recruiter'" v-html="$t('content_work.recruiter_description')"></div>
+							<div class="col" v-if="user_is === 'visitor'" v-html="$t('content_work.visitor_description')"></div>
 						</transition>
 					</div>
 				</div>
