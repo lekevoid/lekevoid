@@ -4,7 +4,7 @@
 		<div class="col">
 			<nav :class="['row items-center justify-end q-pt-md q-pb-sm', `line_moves_${navLineDirection}`]" ref="top_nav">
 				<router-link dark v-for="(page, k) in pagesToDisplay" :to="{ name: page.name }" :key="k" :ref="`link_${page.slug}`">
-					{{ $t(page.slug) }}
+					{{ $t(`nav_${page.slug}`) }}
 				</router-link>
 				<div class="underline" ref="nav_line"></div>
 			</nav>
@@ -68,7 +68,7 @@ export default {
 			this.navLineDirection = "hide";
 		},
 		moveNavLine(from, to) {
-			const targetLink = this.$refs[`link_${to.slug}`] ? this.$refs[`link_${to.slug}`][0].$el : false;
+			const targetLink = this.$refs[`link_${to.slug}`] && this.$refs[`link_${to.slug}`][0] ? this.$refs[`link_${to.slug}`][0].$el : false;
 			const left = targetLink.offsetLeft;
 			const right = this.$refs["top_nav"].clientWidth - (targetLink.offsetLeft + targetLink.clientWidth);
 

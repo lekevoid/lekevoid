@@ -33,14 +33,14 @@ export default {
 	made_with: "Made using",
 	details: "Details",
 	view_live: "View Live",
-	content_personal: {
+	personal: {
 		...personal.default,
 	},
-	content_work: {
+	work: {
 		...work.default,
 	},
-	work: "Work",
-	personal: "Personal",
+	nav_work: "Work",
+	nav_personal: "Personal",
 	cta_client: "Potential client/partner",
 	cta_recruiter: "HR/Recruiter",
 	cta_visitor: "I'm just visiting...",

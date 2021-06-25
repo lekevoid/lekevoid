@@ -15,17 +15,17 @@
 						<span class="hi">{{ $t("hi") }}</span>
 						<span class="kevin">Kevin.</span>
 					</h1>
-					<p>
+					<!-- <p>
 						<q-btn color="purple" class="q-pl-lg" @click="console.log('hello')">
 							<span class="wave"><span class="inner">👋</span></span>
 							<span>{{ $t("hello_there") }}</span>
 						</q-btn>
-					</p>
+					</p> -->
 				</div>
 				<div class="col who_are_you align-start">
 					<div class="col col-12 column no-wrap justify-start items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
-						<h2>{{ $t("nice_to_meet_you") }}</h2>
+						<div v-html="$t('work.intro')"></div>
 						<p v-html="$t('before_we_talk_about_me')"></p>
 						<div :class="['ctas row q-mt-lg items-start justify-center', { has_current: user_is }]" style="width: 100%">
 							<q-btn
@@ -52,18 +52,6 @@
 								<span class="label">{{ $t("cta_recruiter") }}</span>
 								<span class="cancel" @click="emptyUser($event)">&times;</span>
 							</q-btn>
-							<!-- <q-btn
-								color="primary"
-								size="lg"
-								outline
-								glossy
-								:class="['btn_icon', { current: user_is === 'dev' }]"
-								@click="user_is = 'dev'"
-							>
-								<span class="icon">🤓</span>
-								<span class="label">A fellow dev</span>
-								<span class="cancel" @click="emptyUser($event)">&times;</span>
-							</q-btn> -->
 							<q-btn
 								color="primary"
 								size="lg"
@@ -80,9 +68,9 @@
 					</div>
 					<div class="col col-12">
 						<transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" :duration="600">
-							<div class="col" v-if="user_is === 'partner'" v-html="$t('content_work.client_description')"></div>
-							<div class="col" v-if="user_is === 'recruiter'" v-html="$t('content_work.recruiter_description')"></div>
-							<div class="col" v-if="user_is === 'visitor'" v-html="$t('content_work.visitor_description')"></div>
+							<div class="col" v-if="user_is === 'partner'" v-html="$t('work.client_description')"></div>
+							<div class="col" v-if="user_is === 'recruiter'" v-html="$t('work.recruiter_description')"></div>
+							<div class="col" v-if="user_is === 'visitor'" v-html="$t('work.visitor_description')"></div>
 						</transition>
 					</div>
 				</div>

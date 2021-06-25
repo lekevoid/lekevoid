@@ -4,21 +4,15 @@
 		<div class="page_content row q-pa-xl">
 			<div class="col">
 				<div class="row">
-					<h1>{{ $t("content_personal.who_am_i") }}</h1>
+					<h1>{{ $t("personal.who_am_i") }}</h1>
 				</div>
 				<div class="row">
 					<CardsDesktop :starting-cards="cards" @set-current-section="setCurrentSection($event)" />
 					<div class="col col-12 col-md-6" style="position: relative">
-						<div :class="['card_description', 'horror', { active: currentSection === 'horror' }]" v-html="$t(`content_personal.text.horror`)"></div>
-						<div
-							:class="['card_description', 'quantum', { active: currentSection === 'quantum' }]"
-							v-html="$t(`content_personal.text.quantum`)"
-						></div>
-						<div
-							:class="['card_description', 'soldier', { active: currentSection === 'soldier' }]"
-							v-html="$t(`content_personal.text.soldier`)"
-						></div>
-						<div :class="['card_description', 'wizard', { active: currentSection === 'wizard' }]" v-html="$t(`content_personal.text.wizard`)"></div>
+						<div :class="['card_description', 'horror', { active: currentSection === 'horror' }]" v-html="$t(`personal.text.horror`)"></div>
+						<div :class="['card_description', 'quantum', { active: currentSection === 'quantum' }]" v-html="$t(`personal.text.quantum`)"></div>
+						<div :class="['card_description', 'soldier', { active: currentSection === 'soldier' }]" v-html="$t(`personal.text.soldier`)"></div>
+						<div :class="['card_description', 'wizard', { active: currentSection === 'wizard' }]" v-html="$t(`personal.text.wizard`)"></div>
 					</div>
 				</div>
 			</div>
@@ -94,8 +88,10 @@ h1 {
 	}
 }
 
-@media (orientation:portrait) {
-	h1{margin-bottom:60px;}
+@media (orientation: portrait) {
+	h1 {
+		margin-bottom: 60px;
+	}
 }
 
 @media (min-width: $breakpoint-sm-min) {
@@ -113,17 +109,26 @@ h1 {
 	.subtitle {
 		margin-top: 0;
 	}
-	em{font-style:normal;transition:color 0.6s;}
-	i{color:inherit;}
+	em {
+		font-style: normal;
+		transition: color 0.6s;
+	}
+	i {
+		color: inherit;
+	}
 }
 body.body--dark {
 	.card_description {
-	em{color:lighten($primary, 20);}
-}
+		em {
+			color: lighten($primary, 20);
+		}
+	}
 }
 body.body--light {
 	.card_description {
-	em{color:darken($secondary, 20);}
-}
+		em {
+			color: darken($secondary, 20);
+		}
+	}
 }
 </style>
