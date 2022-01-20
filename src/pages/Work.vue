@@ -262,8 +262,9 @@ body {
 
 .hero {
 	height: 80vh;
-	margin-bottom: 20vh;
-	margin-top: 120px;
+	margin-bottom: calc(max(20vh, 120px));
+	padding-top: calc(min(120px, 20vh));
+	padding-bottom: 0;
 
 	.me {
 		$photoSize: 50vmin;
@@ -491,6 +492,8 @@ body.body--light {
 	.hero {
 		height: 90vh;
 		margin-bottom: 10vh;
+		padding-top: calc(min(120px, 20vh));
+		padding-bottom: 0;
 	}
 }
 </style>
