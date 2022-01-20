@@ -1,5 +1,5 @@
 @mixin embed_font($name, $file) {
-	$filepath: "./fonts/"+$file;
+	$filepath: "/"+$file;
 
 	@font-face {
 		font-family: $name;
