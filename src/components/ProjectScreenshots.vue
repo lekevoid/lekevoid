@@ -1,5 +1,5 @@
 <template>
-	<div :class="['screenshots', `current_${current}`]" @click="nextScreenshot()">
+	<div :class="['screenshots', `current_${current}`, { hide_dialog: hideDialog }]" @click="nextScreenshot()">
 		<div class="shadow"></div>
 		<div class="device desktop" v-if="!hideDesktop">
 			<q-img v-for="(img, k) in list.desktop" :src="img" :key="`ss_d_${k}`" :class="[{ current: current === k }]" />
@@ -26,6 +26,10 @@ export default {
 			default: false,
 		},
 		hideMobile: {
+			type: Boolean,
+			default: false,
+		},
+		hideDialog: {
 			type: Boolean,
 			default: false,
 		},
@@ -69,6 +73,12 @@ body.body--light {
 .screenshots {
 	width: 100%;
 	cursor: pointer;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+
+	&.hide_dialog {
+		opacity: 0;
+		transform: scale(0);
+	}
 }
 
 .device {

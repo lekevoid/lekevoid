@@ -285,6 +285,18 @@ nav {
 			background: transparent none;
 		}
 	}
+
+	body.body--dark {
+		header {
+			background: linear-gradient(to bottom, rgba(#000, 1) 0%, rgba(#000, 0.9) 50%, rgba(#000, 0.7) 80%, rgba(#000, 0) 100%);
+		}
+	}
+
+	body.body--light {
+		header {
+			background: linear-gradient(to bottom, rgba(#fff, 1) 0%, rgba(#fff, 0.9) 50%, rgba(#fff, 0.7) 80%, rgba(#fff, 0) 100%);
+		}
+	}
 }
 @media (min-width: $breakpoint-lg-min) {
 	nav {

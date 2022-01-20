@@ -12,6 +12,8 @@ const routes = [
 			},
 			{ path: "/projects", name: "Projects", component: () => import("pages/Projects.vue"), meta: { slug: "projects", showInNav: false } },
 			{ path: "/projects/:project", name: "SingleProject", component: () => import("pages/Projects.vue"), meta: { slug: "projects", showInNav: false } },
+			{ path: "/blog", name: "Blog", component: () => import("pages/Blog.vue"), meta: { slug: "blog", showInNav: true, navOrder: 3 } },
+			{ path: "/blog/:slug", name: "Blog Post", component: () => import("pages/Post.vue"), meta: { slug: "post", showInNav: false } },
 		],
 	},
 

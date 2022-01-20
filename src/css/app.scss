@@ -99,12 +99,12 @@ li {
 	transition: color 1s;
 
 	em {
-		color: $accent;
+		color: $purple-12;
 		font-style: normal;
 	}
 
 	i {
-		color: $primary;
+		color: $light-blue;
 	}
 }
 
@@ -117,7 +117,7 @@ ul {
 }
 
 a {
-	color: $primary;
+	color: $light-blue;
 	position: relative;
 	text-decoration: none;
 	transition: color 0.3s;
@@ -130,7 +130,7 @@ a {
 		}
 
 		&:after {
-			border-bottom: 2px solid $primary;
+			border-bottom: 2px solid $light-blue;
 			bottom: -2px;
 			content: "";
 			left: 0;

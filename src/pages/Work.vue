@@ -22,7 +22,44 @@
 						</q-btn>
 					</p> -->
 				</div>
-				<div class="col who_are_you align-start">
+				<div class="row what_i_do flex-center q-mt-xl">
+					<div class="col column no-wrap justify-center items-start text-left">
+						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
+						<h2>{{ $t("what_i_do") }}</h2>
+						<q-carousel
+							v-model="whatIDoCarousel"
+							transition-prev="scale"
+							transition-next="scale"
+							animated
+							arrows
+							infinite
+							navigation
+							autoplay="autoplay"
+							control-type="outline"
+							control-color="light-blue"
+							class="full-width"
+							style="height: 300px"
+						>
+							<q-carousel-slide name="style" class="column no-wrap flex-center">
+								<q-icon name="keyboard" color="light-blue" size="56px" />
+								<div class="q-mt-md text-center">
+									<p>I turn <em>keystrokes</em> into things people can use.</p>
+								</div>
+							</q-carousel-slide>
+							<q-carousel-slide name="tv" class="column no-wrap flex-center">
+								<q-icon name="travel_explore" color="light-blue" size="56px" />
+								<div class="q-mt-md text-center">
+									<p>I have <em>no idea</em> what I'm doing, but I'll figure it out.</p>
+								</div>
+							</q-carousel-slide>
+							<q-carousel-slide name="layers" class="column no-wrap flex-center">
+								<q-icon name="favorite_border" color="light-blue" size="56px" />
+								<div class="q-mt-md text-center"><p>I am what I am and that's all what I am.</p></div>
+							</q-carousel-slide>
+						</q-carousel>
+					</div>
+				</div>
+				<!-- <div class="col who_are_you align-start">
 					<div class="col col-12 column no-wrap justify-start items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<div v-html="$t('work.intro')"></div>
@@ -73,7 +110,7 @@
 							<div class="col" v-if="user_is === 'visitor'" v-html="$t('work.visitor_description')"></div>
 						</transition>
 					</div>
-				</div>
+				</div> -->
 				<div class="row contact">
 					<!-- <div class="col">
 						<h2>I'd love to hear from you !</h2>
@@ -99,72 +136,36 @@
 						</p>
 					</div>
 				</div> -->
-				<!-- <div class="row what_i_did flex-center">
-					<div class="col column no-wrap justify-center items-start text-left">
+				<div class="row what_i_did flex-center">
+					<!-- <div class="col column no-wrap justify-center items-start text-left">
 						<div class="overline" v-scroll-fire="scaleFromLeft"></div>
 						<h2>{{ $t("what_ive_done") }}</h2>
-						<Project id="broadsign">
+						<Project id="broadsign" liveURL="https://broadsign.com">
 							<template #short>
 								<h3 class="title q-mt-none">
 									<a href="https://broadsign.com" target="_blank" rel="noreferrer noopener">Broadsign</a>
 								</h3>
 								<p>An international digital signage company.</p>
-								<p class="ctas">
-									<q-btn
-										type="a"
-										color="primary"
-										class="q-mr-lg"
-										icon="info"
-										:to="{ name: 'SingleProject', params: { project: 'broadsign' } }"
-										target="_blank"
-										label="Details"
-									/>
-									<q-btn type="a" color="primary" icon="open_in_new" href="https://broadsign.com" target="_blank" :label="$t('view_live')" />
-								</p>
 							</template>
 						</Project>
-						<Project id="gigi_retzo" invert>
+						<Project id="gigi_retzo" invert liveURL="https://gigiretzo.com">
 							<template #short>
 								<h3 class="title q-mt-none">
 									<a href="https://gigiretzo.com" target="_blank" rel="noreferrer noopener">{{ $t("projects.gigi_retzo.title") }}</a>
 								</h3>
 								<p>{{ $t("projects.gigi_retzo.short_desc") }}</p>
-								<p class="ctas">
-									<q-btn
-										type="a"
-										color="primary"
-										class="q-mr-lg"
-										icon="info"
-										:to="{ name: 'SingleProject', params: { project: 'gigi_retzo' } }"
-										target="_blank"
-										:label="$t('details')"
-									/>
-									<q-btn type="a" color="primary" icon="open_in_new" href="https://gigiretzo.com" target="_blank" :label="$t('view_live')" />
-								</p>
 							</template>
 						</Project>
-						<Project id="bokkle" hide-mobile>
+						<Project id="bokkle" hide-mobile liveURL="https://bokkle.web.app">
 							<template #short>
 								<h3 class="title q-mt-none">
 									<a href="https://bokkle.web.app" target="_blank" rel="noreferrer noopener">{{ $t("projects.bokkle.title") }}</a>
 								</h3>
 								<p>{{ $t("projects.bokkle.short_desc") }}</p>
-								<p class="ctas">
-									<q-btn
-										type="a"
-										color="primary"
-										class="q-mr-lg"
-										icon="info"
-										:to="{ name: 'SingleProject', params: { project: 'bokkle' } }"
-										target="_blank"
-										label="Details"
-									/>
-									<q-btn type="a" color="primary" icon="open_in_new" href="https://bokkle.web.app" target="_blank" :label="$t('view_live')" />
-								</p>
 							</template>
 						</Project>
-					</div>
-				</div> -->
+					</div> -->
+				</div>
 			</div>
 			<div class="col-md-1 col-lg-2"></div>
 		</div>
@@ -172,17 +173,18 @@
 </template>
 
 <script>
-// import Project from "../components/Project.vue";
+import Project from "../components/Project.vue";
 
 export default {
 	name: "PageIndex",
 	components: {
-		/* Project */
+		Project,
 	},
 	data: () => ({
 		user_is: false,
 		form: { name: "", email: "", message: "" },
 		formSubmitted: false,
+		whatIDoCarousel: "style",
 	}),
 	computed: {
 		logo_firebase() {
@@ -244,11 +246,6 @@ body {
 	&.body--dark {
 		.who_are_you {
 			min-height: 100vh;
-
-			.btn_icon {
-				img {
-				}
-			}
 		}
 	}
 }
@@ -266,6 +263,7 @@ body {
 .hero {
 	height: 80vh;
 	margin-bottom: 20vh;
+	margin-top: 120px;
 
 	.me {
 		$photoSize: 50vmin;
@@ -296,10 +294,6 @@ body {
 	.hi {
 		font-size: 0.6em;
 		line-height: 100%;
-	}
-
-	.q-btn {
-		position: relative;
 	}
 
 	.wave {
@@ -351,11 +345,6 @@ body {
 		flex: 0 0 100%;
 		overflow: hidden;
 		margin: 0 0 0.6em;
-
-		.q-btn__content {
-			white-space: nowrap;
-			flex-flow: row nowrap;
-		}
 
 		.icon {
 			margin-right: 0.4em;
@@ -425,6 +414,12 @@ body {
 			max-height: 0vh;
 			margin: 0;
 		}
+	}
+}
+
+body.body--light {
+	.hero .me {
+		border-color: #aaa;
 	}
 }
 

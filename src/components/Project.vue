@@ -2,15 +2,33 @@
 	<div :class="['project', 'flex', { invert: invert }]">
 		<div class="row items-start q-col-gutter-x-xl">
 			<div class="col col-12 col-md-6 q-mb-md">
-				<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" />
+				<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" :hide-dialog="dialog" />
 			</div>
 			<div class="col col-12 col-md-6">
 				<slot name="short" />
+				<p class="ctas">
+					<q-btn type="a" color="light-blue" class="q-mr-lg glossy" outline icon="info" @click="dialog = true" target="_blank" label="Details" />
+					<q-btn type="a" color="light-blue" class="glossy" outline icon="open_in_new" :href="liveURL" target="_blank" :label="$t('view_live')" />
+				</p>
 			</div>
 			<div class="col-12">
 				<slot name="details" />
 			</div>
 		</div>
+		<q-dialog v-model="dialog" transition-show="rotate" transition-hide="rotate">
+			<q-card class="dialog_card">
+				<q-card-section class="card_section_screenshots q-mx-auto q-mb-xl">
+					<Screenshots :list="screenshots" :hide-desktop="hideDesktop" :hide-mobile="hideMobile" />
+				</q-card-section>
+
+				<q-card-section class="q-pt-none">
+					<p v-for="n in 15" :key="n">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis
+						perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
+					</p>
+				</q-card-section>
+			</q-card>
+		</q-dialog>
 	</div>
 </template>
 
@@ -37,9 +55,14 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		liveURL: {
+			type: String,
+			default: "",
+		},
 	},
 	data: () => ({
 		screenshots: { desktop: [], mobile: [] },
+		dialog: false,
 	}),
 	computed: {},
 	methods: {
@@ -110,5 +133,14 @@ export default {
 	.ctas {
 		margin-top: 2rem;
 	}
+}
+
+.dialog_card {
+	overflow-x: hidden;
+	max-width: 80vw;
+}
+
+.card_section_screenshots {
+	max-width: 500px;
 }
 </style>
