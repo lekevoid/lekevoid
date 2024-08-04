@@ -8,7 +8,7 @@
 /* eslint-env node */
 const ESLintPlugin = require("eslint-webpack-plugin");
 
-module.exports = function(/* ctx */) {
+module.exports = function (/* ctx */) {
 	return {
 		// https://v1.quasar.dev/quasar-cli/supporting-ts
 		supportTS: false,
@@ -114,9 +114,9 @@ module.exports = function(/* ctx */) {
 			workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
 			workboxOptions: {}, // only for GenerateSW
 			manifest: {
-				name: `LeKevoid`,
-				short_name: `LeKevoid`,
-				description: `LeKevoid's website`,
+				name: "LeKevoid",
+				short_name: "LeKevoid",
+				description: "LeKevoid's website",
 				display: "standalone",
 				orientation: "portrait",
 				background_color: "#000000",
